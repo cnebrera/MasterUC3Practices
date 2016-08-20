@@ -51,6 +51,8 @@ public class TCPVarSizeServer
             // Serialize the msg size
             headerBuffer.putInt(binaryMessage.position());
 
+            System.out.println("About to send msg of size " + binaryMessage.position() + headerBuffer.position());
+
             // TODO 4 Write the header with the message size
 
             // TODO 5 Write the contents

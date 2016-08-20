@@ -7,9 +7,9 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 
 /**
- * TCP client that read messages of variable size from a server
+ * Created by cnebrera on 17/08/16.
  */
-public class TCPVarSizeClient
+public class TCPVarSizeClientBigMsgs
 {
     public static void main(String argv[]) throws Exception
     {
@@ -23,12 +23,7 @@ public class TCPVarSizeClient
         }
     }
 
-    /**
-     * Send messages into the input stream
-     * @param inputStream the input stream connected to the socket
-     * @throws IOException exception if there is an input output problem
-     */
-    private static void readMessages(final InputStream inputStream) throws IOException
+    private static void readMessage(final InputStream inputStream) throws IOException
     {
         // The buffer to read the header
         final byte [] header = new byte[4];
@@ -44,9 +39,17 @@ public class TCPVarSizeClient
         // The buffer to read the message bytes
         final byte [] msgBytes = new byte[msgSize];
 
-        // TODO 6 We need at least the header to know how long is the message
+        // Read the message in "buckets"
+        int numBytesRead = 0;
 
-        // TODO 7 read the message bytes
+        // We need at least the header to know how long is the message
+        while(numBytesRead < msgBytes.length)
+        {
+            // Read the next bytes
+            final int bytesToRead = msgBytes.length - numBytesRead < 128 ? (msgBytes.length - numBytesRead) : 128;
+
+            // TODO 6 read the message bytes
+        }
 
         // Create the message
         final VariableSizeMessage msg = VariableSizeMessage.readMsgFromBinary(msgSize, ByteBuffer.wrap(msgBytes));

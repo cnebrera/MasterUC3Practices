@@ -44,7 +44,7 @@ public class TCPVarSizeClient
         // The buffer to read the message bytes
         final byte [] msgBytes = new byte[msgSize];
 
-        // TODO 6 We need at least the header to know how long is the message
+        // TODO 6 Wait for the whole message to be ready
 
         // TODO 7 read the message bytes
 

@@ -45,7 +45,7 @@ public class McastServer
         final ByteBuffer binaryMessage = rndMsg.toBinary();
         binaryMessage.flip();
 
-        // TODO 3 Create the datagram with the header
+        // TODO 3 Create the datagram with the message
 
         System.out.println("About to send message datagram of size " + binaryMessage.limit());
 

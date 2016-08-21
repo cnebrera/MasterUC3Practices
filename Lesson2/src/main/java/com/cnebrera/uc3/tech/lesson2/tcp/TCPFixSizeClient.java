@@ -34,7 +34,7 @@ public class TCPFixSizeClient
         // The buffer to read the message bytes
         final byte [] msgBytes = new byte[FixSizeMessage.MSG_BINARY_SIZE];
 
-        // TODO 4 We need at least the header to know how long is the message
+        // TODO 4 We need to have enough bytes in the stream to contain the whole message
 
         // TODO 5 Read the message bytes
 

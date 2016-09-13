@@ -28,13 +28,13 @@ var RemoteConnection = (function ()
     	}
     	else
     	{
-			// TODO - Include here your code to create a new request for a remote connection
+			// TODO 1 - Include here your code to create a new request for a remote connection
 			
 
-			// TODO - Include here your code to create the different listeners on the request
+			// TODO 2 - Include here your code to create the different listeners on the request
 		    
 			
-			// TODO - Include here your code to subscribe using the request
+			// TODO 3 - Include here your code to subscribe using the request
 		    
 			
 		    
@@ -57,7 +57,7 @@ var RemoteConnection = (function ()
     	}
     	else
     	{
-			// TODO - Include here your code to be unsubscribed
+			// TODO 4 - Include here your code to be unsubscribed
 		    
     		
     		// Set isConnected to false

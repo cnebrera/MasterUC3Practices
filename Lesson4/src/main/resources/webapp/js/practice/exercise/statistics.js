@@ -33,7 +33,7 @@ var Statistics = (function ()
      */
     Statistics.prototype.updateStatistics = function()
     {
-		// TODO - Include here your code to calculate statistics!
+		// TODO 1 - Include here your code to calculate statistics!
 		
     		
     	this.displayStatistics() ;

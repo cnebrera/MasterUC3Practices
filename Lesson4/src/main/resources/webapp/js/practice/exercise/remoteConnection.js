@@ -31,7 +31,17 @@ var RemoteConnection = (function ()
 			// TODO 1 - Include here your code to create a new request for a remote connection
 			
 
-			// TODO 2 - Include here your code to create the different listeners on the request
+			// TODO 2.1 - Include here your code to create the listener 'open' on the request
+    		
+    		
+			// TODO 2.2 - Include here your code to create the listener 'onMessage' on the request
+    		
+    		
+			// TODO 2.3 - Include here your code to create the listener 'onClose' on the request
+    		
+    		
+			// TODO 2.4 - Include here your code to create the listener 'onError' on the request
+    		
 		    
 			
 			// TODO 3 - Include here your code to subscribe using the request

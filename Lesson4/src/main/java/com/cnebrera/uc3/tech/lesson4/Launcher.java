@@ -101,9 +101,9 @@ public class Launcher
         final ServletHolder atmosphereServletHolder = new ServletHolder(AtmosphereServlet.class);
 
         // Set initial parameters: annotation package, content type and WebSocket support
-        atmosphereServletHolder.setInitParameter(ApplicationConfig.ANNOTATION_PACKAGE, "com.cnebrera.uc3.tech.lesson4.handlers.long_polling," +
-        																			   "com.cnebrera.uc3.tech.lesson4.handlers.websocket") ;
-        atmosphereServletHolder.setInitParameter(ApplicationConfig.WEBSOCKET_CONTENT_TYPE, "application/json") ;
+
+        // TODO 1
+        
         atmosphereServletHolder.setInitParameter(ApplicationConfig.PROPERTY_COMET_SUPPORT, Jetty9AsyncSupportWithWebSocket.class.getName()) ;
 
         // Set the Async Support as true

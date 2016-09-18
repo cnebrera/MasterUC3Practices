@@ -18,8 +18,8 @@ import com.cnebrera.uc3.tech.lesson4.handlers.PricesPublisher;
  * @author Francisco Manuel Benitez Chico
  * --------------------------------------
  */
-@WebSocketHandlerService(path = "/prices/websocket", broadcaster = SimpleBroadcaster.class,
-atmosphereConfig = {"org.atmosphere.websocket.WebSocketProtocol=org.atmosphere.websocket.protocol.StreamingHttpProtocol"})
+
+// TODO 1
 public class WebSocketHandler extends WebSocketStreamingHandlerAdapter
 {
 	/** Logger for this class */

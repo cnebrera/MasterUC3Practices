@@ -17,7 +17,8 @@ import com.cnebrera.uc3.tech.lesson4.handlers.PricesPublisher;
  * @author Francisco Manuel Benitez Chico
  * --------------------------------------
  */
-@AtmosphereHandlerService(path="/prices/long-polling")
+
+// TODO 1
 public class LongPollingHandler implements AtmosphereHandler
 {
 	/** Attribute - Prices Listener - Long Polling */

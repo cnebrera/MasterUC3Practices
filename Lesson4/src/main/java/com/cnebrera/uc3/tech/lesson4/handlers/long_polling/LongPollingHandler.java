@@ -39,29 +39,19 @@ public class LongPollingHandler implements AtmosphereHandler
     	// Get the Atmosphere request
     	final AtmosphereRequest atmosphereRequest = atmosphereResource.getRequest() ;
     	
-    	// Suspend the connection
-		atmosphereRequest.resource().suspend(-1) ;
-		
-		// Send all the pending prices
-		((PricesListenerLongPolling)this.pricesListener).sendPendingPricesChange(atmosphereRequest.resource().getResponse()) ;
-        
-		// Resume the connection
-        atmosphereRequest.resource().resume() ;
+    	// TODO 2
     }   
     
     @Override
     public void onStateChange(final AtmosphereResourceEvent atmosphereResourceEvent) throws IOException
     {
-    	if (atmosphereResourceEvent.isCancelled() || atmosphereResourceEvent.isClosedByApplication() || atmosphereResourceEvent.isClosedByClient())
-    	{
-    		this.removeListener() ;
-    	}
+    	// TODO 3
     }
 
 	@Override
 	public void destroy()
 	{
-		this.removeListener() ;
+		// TODO 4
 	}
 	
 	/**

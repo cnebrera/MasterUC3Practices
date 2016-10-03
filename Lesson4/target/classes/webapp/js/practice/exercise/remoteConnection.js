@@ -28,34 +28,25 @@ var RemoteConnection = (function ()
     	}
     	else
     	{
-		    var request = { url: document.location.toString() + 'prices/' + transportType,
-		    				contentType : "application/json",
-		    				transport : transportType,
-		    				fallbackTransport: 'long-polling'} ;
+			// TODO 1 - Include here your code to create a new request for a remote connection
+			
 
-		    request.onOpen = function(response)
-		    {
-		    	instance.dashboard.setErrorMessage("Atmosphere connected using " + response.transport) ;
-		    };
-
-		    request.onMessage = function (response)
-		    {
-		    	var instrument = JSON.parse(response.responseBody) ;
-				instance.dashboard.addPrice(instrument) ;
-		    };
-
-		    request.onClose = function(response)
-		    {
-		    	instance.dashboard.setErrorMessage("Atmosphere disconnected from " + response.transport) ;
-		    };
-
-		    request.onError = function(response)
-		    {
-		    	instance.dashboard.setErrorMessage("Sorry, but there is some problem with your socket or the server is down " + response.transport) ;
-		    };
+			// TODO 2.1 - Include here your code to create the listener 'open' on the request
+    		
+    		
+			// TODO 2.2 - Include here your code to create the listener 'onMessage' on the request
+    		
+    		
+			// TODO 2.3 - Include here your code to create the listener 'onClose' on the request
+    		
+    		
+			// TODO 2.4 - Include here your code to create the listener 'onError' on the request
+    		
 		    
-		    // Subscribe to this topic
-		    this.socket.subscribe(request);
+			
+			// TODO 3 - Include here your code to subscribe using the request
+		    
+			
 		    
 		    // Set isConnected to true
 		    this.isConnected = true ;
@@ -76,8 +67,8 @@ var RemoteConnection = (function ()
     	}
     	else
     	{
-		    // Unsubscribe to this topic
-    		this.socket.unsubscribe() ;
+			// TODO 4 - Include here your code to be unsubscribed
+		    
     		
     		// Set isConnected to false
     		this.isConnected = false ;

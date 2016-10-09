@@ -1,0 +1,49 @@
+div#prices
+{
+	display:block;
+}
+
+div#control
+{
+	padding: 5px;
+	margin: 5px;
+	background-color: #AA0000;
+	box-shadow: 3px 3px 3px #888888;
+	color: white;
+	border:1px solid black;
+}
+
+div#statistics
+{
+	padding: 5px;
+	margin: 5px;
+	background-color: #AA0000;
+	box-shadow: 3px 3px 3px #888888;
+	color: white;
+	border:1px solid black;
+}
+
+div.instrumentDiv
+{
+	background-color: #016350;
+	padding: 5px;
+	box-shadow: 3px 3px 3px #888888;
+	margin: 5px;
+	border:1px solid black;
+	float:left;
+	color: white;
+	max-height: 120px;
+	min-height: 120px;
+	max-width: 100px;
+	min-width: 100px;
+}
+
+label#messagesPerSecond,label#totalTime, label#totalMessages
+{
+	border-right:1px solid white;
+	margin-right:10px;
+	padding-right:10px;
+	width:140px;
+	display:inline-block;
+	text-align:right;
+}

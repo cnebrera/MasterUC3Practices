@@ -1,0 +1,36 @@
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%t] %C - %m%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="lesson5Appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>lesson5Appender.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>lesson5Appender.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%t] %C - %m%n
+			</pattern>
+		</encoder>
+	</appender>
+
+<!-- 	<logger name="com.cnebrera.uc3.tech.lesson5" additivity="false" level="WARN"> -->
+<!-- 		<appender-ref ref="lesson5Appender" /> -->
+<!-- 	</logger> -->
+
+	<root level="WARN">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="lesson5Appender" />
+	</root>
+</configuration>

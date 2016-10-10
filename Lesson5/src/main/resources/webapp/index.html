@@ -1,0 +1,42 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	
+	<!-- External libraries -->
+	<script type="text/javascript" src="js/external/atmosphere/atmosphere.js"></script>
+	<script type="text/javascript" src="js/external/jquery/jquery-3.0.0.min.js"></script>
+	
+	<!-- Practice - Utilities -->
+	<script type="text/javascript" src="js/practice/util/dashboard.js"></script>
+	<script type="text/javascript" src="js/practice/util/common.js"></script>
+	
+	<!-- Practice - Exercises -->
+	<script type="text/javascript" src="js/practice/exercise/remoteConnection.js"></script>
+	<script type="text/javascript" src="js/practice/exercise/statistics.js"></script>
+	
+	<!-- Launcher -->
+	<script type="text/javascript" src="js/practice/launcher.js"></script>
+</head>
+<body>	
+	<div id="control">
+		<label class="modifyLabel">Transport:</label>
+		<select id="transportType">
+  			<option selected="selected">websocket</option>
+  			<option>long-polling</option>
+		</select>
+		<button id="startButton" title="Start" onclick="dashboard.startButtonClick()">Start</button>
+		<button id="stopButton"  title="Stop"  onclick="dashboard.stopButtonClick()">Stop</button>
+		<label id="errorMessage"></label>
+	</div>
+	<div id="statistics">
+		<label id="messagesPerSecond">Msgs/s</label>
+		<label id="totalTime">Elapsed</label>
+		<label id="totalMessages">Num Msgs</label>
+	</div>
+	<div id="prices">
+	</div>
+</body>
+</html>

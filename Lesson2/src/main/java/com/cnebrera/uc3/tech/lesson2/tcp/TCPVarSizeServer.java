@@ -46,10 +46,12 @@ public class TCPVarSizeServer
 
             // Convert to binary
             final ByteBuffer binaryMessage = rndMsg.toBinary();
-            binaryMessage.flip();
 
             // Serialize the msg size
             headerBuffer.putInt(binaryMessage.position());
+
+            // Flip the binary message prior to writing to adjust position to 0 and limit to the end of the buffer
+            binaryMessage.flip();
 
             System.out.println("About to send msg of size " + binaryMessage.position() + headerBuffer.position());
 

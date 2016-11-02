@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:complexType name="teacherInfo">
+		<xs:sequence>
+			<xs:element name="teacherFirstName" type="xs:string" />
+			<xs:element name="teacherLastName"  type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="fullTeacherInfo">
+		<xs:complexContent>
+			<xs:extension base="teacherInfo">
+				<xs:sequence>
+	        		<xs:element name="teacherCity"    type="xs:string" />
+	        		<xs:element name="teacherCountry" type="xs:string" />
+	      		</xs:sequence>
+    		</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="lesson">
+		<xs:sequence>
+			<xs:element name="lessonFrom"    type="xs:date"/>
+			<xs:element name="lessonTo"      type="xs:date"/>
+			<xs:element name="lessonName"    type="xs:string"/>
+			<xs:element name="lessonTeacher" type="fullTeacherInfo" />
+			<xs:element name="lessonMark"    type="xs:integer" />
+		</xs:sequence>
+		<xs:attribute name="lessonId" type="xs:integer" use="required" />
+	</xs:complexType>
+	
+	<xs:element name="studentLessons">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="studentName" type="xs:string" />
+				<xs:element name="studentLesson" type="lesson" minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

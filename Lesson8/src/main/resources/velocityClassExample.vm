@@ -1,0 +1,40 @@
+// TODO 1
+
+// TODO 2
+
+// TODO 3
+
+// TODO 4
+{
+	/** Attribute - myListStringValues */
+	private List<String> myListStringValues ;
+	
+	/**
+	 * Public Constructor
+	 */ 
+	// TODO 5
+	{
+		this.myListStringValues = new ArrayList<String>() ;
+		
+		// Set values from Velocity
+		
+// TODO 6
+	}
+
+	/**
+	 * @return myListStringValues as string
+	 */ 
+	public String toString()
+	{
+		return myListStringValues.toString() ;
+	}
+	
+	/**
+	 * @param args with the input arguments
+	 */ 
+	public static void main(final String[] args)
+	{
+		final ${className} myExample = new ${className}() ;
+		System.out.println(myExample.toString()) ;
+	}
+}

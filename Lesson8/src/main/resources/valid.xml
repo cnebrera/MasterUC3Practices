@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<studentLessons>
+    <studentName>Paco Benitez</studentName>
+    
+    <studentLesson lessonId="1">
+    
+        <lessonFrom>2016-09-12</lessonFrom>
+        <lessonTo>2016-09-18</lessonTo>
+        <lessonName>Latencia</lessonName>
+        
+        <lessonTeacher>
+            <teacherFirstName>Carlos</teacherFirstName>
+            <teacherLastName>Nebrera</teacherLastName>
+            <teacherCity>Madrid</teacherCity>
+            <teacherCountry>Spain</teacherCountry>
+        </lessonTeacher>
+        
+        <lessonMark>10</lessonMark>
+    </studentLesson>
+    
+    <studentLesson lessonId="6">
+    
+        <lessonFrom>2016-10-24</lessonFrom>
+        <lessonTo>2016-10-30</lessonTo>
+        <lessonName>In Memory Grid</lessonName>
+        
+        <lessonTeacher>
+            <teacherFirstName>Florentino</teacherFirstName>
+            <teacherLastName>Sainz</teacherLastName>
+            <teacherCity>Madrid</teacherCity>
+            <teacherCountry>Spain</teacherCountry>
+        </lessonTeacher>
+        
+        <lessonMark>9</lessonMark>
+    </studentLesson>
+</studentLessons>

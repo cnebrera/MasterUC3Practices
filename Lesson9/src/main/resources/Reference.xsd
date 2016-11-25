@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:l9="http:/tech.uc3.cnebrera.com/lesson9"
+           targetNamespace="http:/tech.uc3.cnebrera.com/lesson9"
+           elementFormDefault="qualified" >
+
+    <xs:element name="referenceData">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation xml:lang="en">
+                   This element is the root element of the document and represents all the reference data
+                    of the market
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence>
+                <xs:element name="instrument" type="l9:Instrument" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="marketId" type="xs:int"/>
+            <xs:attribute name="algorithmIdentifier" type="xs:string"/>
+        </xs:complexType>
+
+    </xs:element>
+
+
+    <xs:complexType name="Instrument">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                This complexType represents the info of and Instrument
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="instrumentId" type="xs:int"/>
+        <xs:attribute name="symbol" type="xs:string"/>
+    </xs:complexType>
+</xs:schema>

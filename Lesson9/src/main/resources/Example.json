@@ -1,0 +1,20 @@
+{
+  "market_id" : 1,
+  "algorithm_identifier" : "TWAP",
+  "list_of_instruments" : [ {
+    "instrument_id" : 1,
+    "symbol" : "BBVA"
+  }, {
+    "instrument_id" : 2,
+    "symbol" : "SAN"
+  }, {
+    "instrument_id" : 3,
+    "symbol" : "FDAX"
+  }, {
+    "instrument_id" : 4,
+    "symbol" : "TEF"
+  }, {
+    "instrument_id" : 5,
+    "symbol" : "IBER"
+  } ]
+}

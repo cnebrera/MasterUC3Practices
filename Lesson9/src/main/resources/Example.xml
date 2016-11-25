@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<referenceData
+        xmlns="http:/tech.uc3.cnebrera.com/lesson9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http:/tech.uc3.cnebrera.com/lesson9 Reference.xsd" algorithmIdentifier="TWAP" marketId="1">
+
+
+
+    <instrument instrumentId="1" symbol="BBVA" />
+    <instrument instrumentId="2" symbol="SAN" />
+    <instrument instrumentId="3" symbol="FDAX" />
+    <instrument instrumentId="4" symbol="TEF" />
+    <instrument instrumentId="5" symbol="IBER" />
+
+
+</referenceData>

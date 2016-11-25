@@ -1,0 +1,1 @@
+rutaAlProtoC/protoc  -I=. --java_out=../java/ lesson9.proto

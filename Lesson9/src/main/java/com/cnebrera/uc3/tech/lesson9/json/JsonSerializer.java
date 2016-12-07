@@ -42,7 +42,7 @@ public class JsonSerializer implements Serializer<ReferenceData, String>
         ReferenceData referenceData = null;
         try
         {
-            referenceData =  mapper.reader().readValue(rawData);
+            referenceData =  mapper.readValue(rawData, ReferenceData.class);;
         }
         catch (IOException e)
         {

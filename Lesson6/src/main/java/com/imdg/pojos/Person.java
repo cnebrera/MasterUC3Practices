@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Sobremesa on 22/10/2016.
  */
-public class Person implements Serializable {
+public class Person {
 
     private String name;
     private Integer zipCode;

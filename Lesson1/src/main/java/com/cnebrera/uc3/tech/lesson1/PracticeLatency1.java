@@ -3,7 +3,9 @@ package com.cnebrera.uc3.tech.lesson1;
 import com.cnebrera.uc3.tech.lesson1.simulator.BaseSyncOpSimulator;
 import com.cnebrera.uc3.tech.lesson1.simulator.SyncOpSimulRndPark;
 import org.HdrHistogram.Histogram;
+import org.HdrHistogram.HistogramLogProcessor;
 
+import java.io.FileNotFoundException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -37,8 +39,8 @@ public class PracticeLatency1
         // Timestamp
         long start, tot;
 
-        // Set it adjustable, then, knowing the rank, comment it
-        // hg.setAutoResize(true);
+        // Set it adjustable, for resizing the rank
+        hg.setAutoResize(true);
 
         tot = System.currentTimeMillis();
         // Execute the operation lot of times
@@ -55,7 +57,9 @@ public class PracticeLatency1
         // Show the percentile distribution of the latency calculation of each executeOp call
         hg.outputPercentileDistribution(System.out, SCALE);
 
+
         System.out.println("#[Min     =        " + (hg.getMinValue()/SCALE) +
                     ", Time           =        " + (tot/SCALE) + "]");
     }
 }
+

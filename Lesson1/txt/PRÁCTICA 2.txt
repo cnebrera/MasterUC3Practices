@@ -1,0 +1,61 @@
+PRÁCTICA 2
+
+Resultado:
+--------------------------------------------------------
+nº = 1  | Min = 6144  | Max = 71821311  | Mean = 7511.1552  | 99% = 18431 | 99.9% = 41983
+nº = 2  | Min = 6144  | Max = 259071  | Mean = 6743.75424 | 99% = 11263 | 99.9% = 19455
+nº = 3  | Min = 4096  | Max = 10371583  | Mean = 5623.9744  | 99% = 9727  | 99.9% = 15871
+nº = 4  | Min = 4096  | Max = 65535 | Mean = 4937.43104 | 99% = 6655  | 99.9% = 17407
+nº = 5  | Min = 4096  | Max = 57343 | Mean = 4922.10944 | 99% = 6655  | 99.9% = 17407
+nº = 6  | Min = 4096  | Max = 54783 | Mean = 4921.53088 | 99% = 6655  | 99.9% = 14847
+nº = 7  | Min = 4096  | Max = 75263 | Mean = 5142.38976 | 99% = 11263 | 99.9% = 17407
+nº = 8  | Min = 4096  | Max = 63487 | Mean = 4926.22592 | 99% = 6655  | 99.9% = 17407
+nº = 9  | Min = 4096  | Max = 71679 | Mean = 4950.94528 | 99% = 6655  | 99.9% = 16895
+nº = 10 | Min = 4096  | Max = 84479 | Mean = 4936.05632 | 99% = 6655  | 99.9% = 17407
+nº = 11 | Min = 4096  | Max = 70655 | Mean = 4923.84256 | 99% = 6655  | 99.9% = 17407
+nº = 12 | Min = 4096  | Max = 79871 | Mean = 4916.61312 | 99% = 6655  | 99.9% = 17407
+nº = 13 | Min = 4096  | Max = 56831 | Mean = 4918.64832 | 99% = 6655  | 99.9% = 17407
+nº = 14 | Min = 4096  | Max = 63487 | Mean = 4915.80928 | 99% = 6655  | 99.9% = 14335
+nº = 15 | Min = 4096  | Max = 63487 | Mean = 4925.86496 | 99% = 6655  | 99.9% = 14847
+nº = 16 | Min = 4096  | Max = 132095  | Mean = 4937.72544 | 99% = 6655  | 99.9% = 17407
+nº = 17 | Min = 4096  | Max = 66047 | Mean = 4938.18368 | 99% = 6655  | 99.9% = 17407
+nº = 18 | Min = 4096  | Max = 56319 | Mean = 4920.42752 | 99% = 6655  | 99.9% = 13823
+nº = 19 | Min = 4096  | Max = 94207 | Mean = 4918.32832 | 99% = 6655  | 99.9% = 17407
+nº = 20 | Min = 4096  | Max = 65535 | Mean = 4901.5552  | 99% = 6655  | 99.9% = 14847
+nº = 21 | Min = 4096  | Max = 80383 | Mean = 4917.27616 | 99% = 6655  | 99.9% = 17407
+nº = 22 | Min = 4096  | Max = 53759 | Mean = 4916.22144 | 99% = 6655  | 99.9% = 17407
+nº = 23 | Min = 4096  | Max = 64511 | Mean = 4905.4208  | 99% = 6655  | 99.9% = 17407
+nº = 24 | Min = 4096  | Max = 61951 | Mean = 4897.56928 | 99% = 6655  | 99.9% = 14335
+nº = 25 | Min = 4096  | Max = 71167 | Mean = 4906.5984  | 99% = 6655  | 99.9% = 14335
+nº = 26 | Min = 4096  | Max = 65535 | Mean = 4909.26592 | 99% = 6655  | 99.9% = 14335
+nº = 27 | Min = 4096  | Max = 76799 | Mean = 4930.07872 | 99% = 6655  | 99.9% = 17407
+nº = 28 | Min = 4096  | Max = 72703 | Mean = 4924.47232 | 99% = 6655  | 99.9% = 17407
+nº = 29 | Min = 4096  | Max = 62975 | Mean = 4913.27744 | 99% = 6655  | 99.9% = 17407
+nº = 30 | Min = 4096  | Max = 8289791 | Mean = 4966.63808 | 99% = 6655  | 99.9% = 13823
+nº = 31 | Min = 4096  | Max = 99839 | Mean = 4933.63456 | 99% = 6655  | 99.9% = 14335
+nº = 32 | Min = 4096  | Max = 65023 | Mean = 4940.96896 | 99% = 6655  | 99.9% = 17407
+nº = 33 | Min = 4096  | Max = 72191 | Mean = 4938.96192 | 99% = 6655  | 99.9% = 17407
+nº = 34 | Min = 4096  | Max = 63999 | Mean = 4942.58944 | 99% = 6655  | 99.9% = 15359
+nº = 35 | Min = 4096  | Max = 71679 | Mean = 4951.3984  | 99% = 6655  | 99.9% = 17407
+nº = 36 | Min = 4096  | Max = 69119 | Mean = 4957.45536 | 99% = 6655  | 99.9% = 17407
+nº = 37 | Min = 4096  | Max = 77311 | Mean = 4943.83616 | 99% = 6655  | 99.9% = 17407
+nº = 38 | Min = 4096  | Max = 68607 | Mean = 4936.9216  | 99% = 6655  | 99.9% = 17407
+nº = 39 | Min = 4096  | Max = 62463 | Mean = 4938.49856 | 99% = 6655  | 99.9% = 17407
+nº = 40 | Min = 4096  | Max = 70655 | Mean = 4925.02784 | 99% = 6655  | 99.9% = 17407
+nº = 41 | Min = 4096  | Max = 63487 | Mean = 4935.33184 | 99% = 6655  | 99.9% = 14335
+nº = 42 | Min = 4096  | Max = 57343 | Mean = 4937.2288  | 99% = 6655  | 99.9% = 14335
+nº = 43 | Min = 4096  | Max = 77311 | Mean = 4929.80736 | 99% = 6655  | 99.9% = 14335
+nº = 44 | Min = 4096  | Max = 59391 | Mean = 4941.78816 | 99% = 6655  | 99.9% = 15359
+nº = 45 | Min = 4096  | Max = 55807 | Mean = 4939.47392 | 99% = 6655  | 99.9% = 17407
+nº = 46 | Min = 4096  | Max = 63999 | Mean = 4934.8864  | 99% = 6655  | 99.9% = 14847
+nº = 47 | Min = 4096  | Max = 199167  | Mean = 4941.1328  | 99% = 6655  | 99.9% = 17407
+nº = 48 | Min = 4096  | Max = 62975 | Mean = 4927.42144 | 99% = 6655  | 99.9% = 14335
+nº = 49 | Min = 4096  | Max = 58367 | Mean = 4930.59328 | 99% = 6655  | 99.9% = 13823
+nº = 50 | Min = 4096  | Max = 79359 | Mean = 4934.38464 | 99% = 6655  | 99.9% = 14335
+--------------------------------------------------------
+
+Comentario:
+--------------------------------------------------------
+En todas las ejecuciones realizadas, se ha podido observar una mejora a partir de la tercera ejecución. Se ha obtenido una diferencia de 2500 nanosegundos entre las medias de estas. Aunque en todas las ejecuciones, ha habido una variacion de máximos que no puedan mostrar una mejora significativa, los demas datos si que son apreciables. Esto se debe a que por cualquier acción del sistema, una ejecución puede haber tardado más del lo normal, pero el reflejo mas claro esta en la media, porque realmente se ve cuando empieza a afectar el JIT.
+
+Para evitar sobrecargar la función de objetos, se ha utilizado el mismo histograma para todas las medidas, vaciandola entre ejecuciones. Tambien se ha intentado recoger los datos de la ejecucion en una lista dinámica, pero se ha observado un impacto en el rendimiento de la tarea, por lo que se ha descartado. Lo más eficiaz ha sido printar los resultados a medida que se obtengan, o almacenarlos en un espacio fijo.

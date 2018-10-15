@@ -16,10 +16,10 @@ import java.util.concurrent.TimeUnit;
 public class PracticeLatency2
 {
 
-    private static long LOWEST  = 1000;   /* Minimum registered value */
-    private static long HIGHEST = 1300000;  /* Maximum registered value */
-    private static int SIGNIF   = 5;      /* Significance, 2 will allow to have pretty accurate results */
-    private static int REPS     = 50;     /* Repetitions */
+    private final static long LOWEST  = 1000;    /* Minimum registered value */
+    private final static long HIGHEST = 1300000; /* Maximum registered value */
+    private final static int  SIGNIF  = 5;       /* Significance, 5 will allow to have pretty accurate results */
+    private final static int  REPS    = 50;      /* Repetitions */
 
     /**
      * Main method to run the practice
@@ -41,6 +41,9 @@ public class PracticeLatency2
         BaseSyncOpSimulator syncOpSimulator = new SyncOpSimulLongOperation();
         // Timestamp
         long start;
+
+        // Set it adjustable, for resizing the rank
+        hg.setAutoResize(true);
 
         // Warm up
         for (int nb = 1; nb <= REPS; nb++) {

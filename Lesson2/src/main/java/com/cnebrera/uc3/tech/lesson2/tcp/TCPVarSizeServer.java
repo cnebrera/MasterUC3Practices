@@ -53,7 +53,7 @@ public class TCPVarSizeServer
             // Flip the binary message prior to writing to adjust position to 0 and limit to the end of the buffer
             binaryMessage.flip();
 
-            System.out.println("About to send msg of size " + binaryMessage.position() + headerBuffer.position());
+            System.out.println("About to send msg of size " + binaryMessage.limit() + headerBuffer.position());
 
             // TODO 4 Write the header with the message size
 

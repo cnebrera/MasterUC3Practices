@@ -54,8 +54,6 @@ public class P2VolumeProcessing {
         //Rellena cache (simulación, en un caso real la rellenaría la operativa diaria)
         rellenaCache(mapCustomers);
 
-
-        //Añadir listener a la cache que imprima/de una alerta cuando detecte que el volumen acumulado ha llegado a 30000
         Map<String, Object> ret=mapCustomers.executeOnEntries(new OrderProcessor());
         //Ret contiene parejas <Clave, ObjetoRetornadoEnProcess del Processor>
 

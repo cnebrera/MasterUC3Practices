@@ -25,6 +25,7 @@ public class MySchemaOutputResolver extends SchemaOutputResolver
     public Result createOutput(final String namespaceURI, final String suggestedFileName) throws IOException
     {
         // TODO 1
+		return null;
     }
 
 }

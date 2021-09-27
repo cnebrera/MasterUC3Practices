@@ -10,6 +10,7 @@ import com.cnebrera.uc3.tech.lesson8.util.Constants;
  * Launcher class - Valid XML
  * --------------------------------------
  * @author Francisco Manuel Benitez Chico
+ * @author Angel Iglesias Sanchez
  * --------------------------------------
  */
 public class ValidXMLLauncher extends AbstractXMLLauncher
@@ -21,8 +22,8 @@ public class ValidXMLLauncher extends AbstractXMLLauncher
 	 */
 	public static void main(final String[] args) throws JAXBException, SAXException
 	{
-		final AbstractXMLLauncher validInstanceLauncher = new ValidXMLLauncher() ;
+		final AbstractXMLLauncher validInstanceLauncher = new ValidXMLLauncher();
 		
-		validInstanceLauncher.handleXML(Constants.VALID_XML_FILE_PATH) ;
+		validInstanceLauncher.handleXML(Constants.VALID_XML_FILE_PATH);
 	}
 }

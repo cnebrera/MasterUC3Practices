@@ -11,6 +11,7 @@ import javax.xml.transform.stream.StreamResult;
  * My Schema Output Resolver
  * --------------------------------------
  * @author Francisco Manuel Benitez Chico
+ * @author Angel Iglesias Sanchez
  * --------------------------------------
  */
 public class MySchemaOutputResolver extends SchemaOutputResolver

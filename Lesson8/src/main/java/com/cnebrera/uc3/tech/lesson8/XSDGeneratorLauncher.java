@@ -11,6 +11,7 @@ import com.cnebrera.uc3.tech.lesson8.util.Constants;
  * Launcher class - XSD Generator from JAXB Class
  * --------------------------------------
  * @author Francisco Manuel Benitez Chico
+ * @author Angel Iglesias Sanchez
  * --------------------------------------
  */
 public class XSDGeneratorLauncher extends AbstractXMLLauncher
@@ -22,10 +23,10 @@ public class XSDGeneratorLauncher extends AbstractXMLLauncher
 	protected void generateXSDfromJAXBClass() throws IOException, JAXBException
 	{
 		// Create a new instance of the JAXB Handler
-		final JAXBHandler jaxbHandler = new JAXBHandler() ;
+		final JAXBHandler jaxbHandler = new JAXBHandler();
 		
 		// Generate the schema content
-		jaxbHandler.generateSchema(Constants.NAMESPACE_URI, Constants.SUGGESTED_FILE_NAME) ;
+		jaxbHandler.generateSchema(Constants.NAMESPACE_URI, Constants.SUGGESTED_FILE_NAME);
 	}
 	
 	/**
@@ -35,8 +36,8 @@ public class XSDGeneratorLauncher extends AbstractXMLLauncher
 	 */
 	public static void main(final String[] args) throws IOException, JAXBException
 	{
-		final XSDGeneratorLauncher xsdGeneratorLauncher = new XSDGeneratorLauncher() ;
+		final XSDGeneratorLauncher xsdGeneratorLauncher = new XSDGeneratorLauncher();
 		
-		xsdGeneratorLauncher.generateXSDfromJAXBClass() ;
+		xsdGeneratorLauncher.generateXSDfromJAXBClass();
 	}
 }

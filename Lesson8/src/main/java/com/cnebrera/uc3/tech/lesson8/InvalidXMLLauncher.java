@@ -10,6 +10,7 @@ import com.cnebrera.uc3.tech.lesson8.util.Constants;
  * Launcher class - Invalid XML
  * --------------------------------------
  * @author Francisco Manuel Benitez Chico
+ * @author Angel Iglesias Sanchez
  * --------------------------------------
  */
 public class InvalidXMLLauncher extends AbstractXMLLauncher
@@ -21,8 +22,8 @@ public class InvalidXMLLauncher extends AbstractXMLLauncher
 	 */
 	public static void main(final String[] args) throws JAXBException, SAXException
 	{
-		final AbstractXMLLauncher validInstanceLauncher = new InvalidXMLLauncher() ;
+		final AbstractXMLLauncher validInstanceLauncher = new InvalidXMLLauncher();
 		
-		validInstanceLauncher.handleXML(Constants.INVALID_XML_FILE_PATH) ;
+		validInstanceLauncher.handleXML(Constants.INVALID_XML_FILE_PATH);
 	}
 }

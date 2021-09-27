@@ -1,4 +1,4 @@
-package com.cnebrera.uc3.tech.lesson8 ;
+package com.cnebrera.uc3.tech.lesson8;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +10,7 @@ import com.cnebrera.uc3.tech.lesson8.util.Constants;
  * Launcher class - XJC Launcher
  * --------------------------------------
  * @author Francisco Manuel Benitez Chico
+ * @author Angel Iglesias Sanchez
  * --------------------------------------
  */
 public class XjcLauncher
@@ -31,11 +32,11 @@ public class XjcLauncher
 		}
 	    catch (IOException ioException)
 		{
-	    	ioException.printStackTrace() ;	
+	    	ioException.printStackTrace();
 		}
 		catch (InterruptedException interruptedExc)
 		{
-			interruptedExc.printStackTrace() ;
+			interruptedExc.printStackTrace();
 		}
 	}
 	
@@ -45,19 +46,19 @@ public class XjcLauncher
 	 */
 	private void printOutput(final Process process) throws IOException
 	{
-		final StringBuffer output   = new StringBuffer() ;
-		final BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream())) ;
+		final StringBuffer output   = new StringBuffer();
+		final BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
-		String line 				= reader.readLine() ;
+		String line 				= reader.readLine();
 
 		while (line != null)
 		{
-			output.append(line + "\n") ;
+			output.append(line + "\n");
 			
-			line = reader.readLine() ;
+			line = reader.readLine();
 		}
 		
-		System.out.println(output.toString()) ;
+		System.out.println(output.toString());
 	}
 
 	/**
@@ -65,8 +66,8 @@ public class XjcLauncher
 	 */
 	public static void main(final String[] args)
 	{
-		final XjcLauncher xjcLauncher = new XjcLauncher() ;
+		final XjcLauncher xjcLauncher = new XjcLauncher();
 		
-		xjcLauncher.generateClassesFromXsd() ;
+		xjcLauncher.generateClassesFromXsd();
 	}
 }

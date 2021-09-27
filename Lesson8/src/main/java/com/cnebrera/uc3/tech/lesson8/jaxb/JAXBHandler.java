@@ -23,12 +23,13 @@ import com.cnebrera.uc3.tech.lesson8.xjc.StudentLessons;
  * JAXB Handler
  * --------------------------------------
  * @author Francisco Manuel Benitez Chico
+ * @author Angel Iglesias Sanchez
  * --------------------------------------
  */
 public class JAXBHandler
 {
 	/** Attribute - JAXB Context */
-	private final JAXBContext jaxbContext ;
+	//private final JAXBContext jaxbContext;
 	
 	/**
 	 * Initialize the JAXB Context
@@ -52,6 +53,7 @@ public class JAXBHandler
 		// TODO 3
 		
 		// TODO 4
+		return null;
 	}
 	
 	/**
@@ -70,6 +72,7 @@ public class JAXBHandler
 		// TODO 8
 		
 		// TODO 9
+		return "";
 	}
 	
 	/**

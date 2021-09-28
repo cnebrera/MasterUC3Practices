@@ -13,6 +13,7 @@ import com.cnebrera.uc3.tech.lesson8.xjc.StudentLessons;
  * Abstract Launcher class
  * --------------------------------------
  * @author Francisco Manuel Benitez Chico
+ * @author Angel Iglesias Sanchez
  * --------------------------------------
  */
 public abstract class AbstractXMLLauncher
@@ -24,17 +25,17 @@ public abstract class AbstractXMLLauncher
 	 */
 	protected void handleXML(final String filePath) throws JAXBException, SAXException
 	{
-		final File file = new File(filePath) ;
+		final File file = new File(filePath);
 		
 		// Create a new instance of the JAXB Handler
-		JAXBHandler jaxbHandler 			= new JAXBHandler() ;
+		JAXBHandler jaxbHandler 			= new JAXBHandler();
 		
 		// Firstly, convert the XML to Object
-		final StudentLessons studentLessons = jaxbHandler.convertToObject(file) ;
-		System.out.println(studentLessons) ;
+		final StudentLessons studentLessons = jaxbHandler.convertToObject(file);
+		System.out.println(studentLessons);
 		
 		// Finally, convert the outcome object to xml again
-		final String xmlContent 			= jaxbHandler.convertToXml(studentLessons) ;
-		System.out.println(xmlContent) ;
+		final String xmlContent 			= jaxbHandler.convertToXml(studentLessons);
+		System.out.println(xmlContent);
 	}
 }

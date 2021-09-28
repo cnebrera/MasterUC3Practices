@@ -18,6 +18,7 @@ import com.cnebrera.uc3.tech.lesson8.util.Constants;
  * Velocity Handler
  * --------------------------------------
  * @author Francisco Manuel Benitez Chico
+ * @author Angel Iglesias Sanchez
  * --------------------------------------
  */
 public class VelocityHandler
@@ -45,11 +46,11 @@ public class VelocityHandler
 	 */
 	private VelocityEngine initializeVelocityEngine()
 	{
-		final VelocityEngine velocityEngine = new VelocityEngine() ;
+		final VelocityEngine velocityEngine = new VelocityEngine();
 
 		// TODO 6
         
-        return velocityEngine ;
+        return velocityEngine;
 	}
 	
 	/**
@@ -59,11 +60,11 @@ public class VelocityHandler
 	 */
 	private VelocityContext setContextParameters(final String packageName, final String className)
 	{
-		final VelocityContext context = new VelocityContext() ;
+		final VelocityContext context = new VelocityContext();
 		
 		// TODO 7
         
-        return context ;
+        return context;
 	}
 	
 	/**
@@ -71,11 +72,11 @@ public class VelocityHandler
 	 */
 	private List<String> generateClassImports()
 	{
-		final List<String> classImports = new ArrayList<String>() ;
+		final List<String> classImports = new ArrayList<String>();
 		
 		// TODO 8
         
-        return classImports ;
+        return classImports;
 	}
 	
 	/**
@@ -83,11 +84,11 @@ public class VelocityHandler
 	 */
 	private List<String> generateStringValues()
 	{
-        final List<String> stringValues = new ArrayList<String>() ;
+        final List<String> stringValues = new ArrayList<String>();
         
 		// TODO 9
         
-        return stringValues ;
+        return stringValues;
 	}
 	
 	/**
@@ -99,17 +100,17 @@ public class VelocityHandler
 	{
 		final File outputFile = new File(Constants.JAVA_FOLDER 					  + File.separator +
 										 packageName.replace(".", File.separator) + File.separator +  
-										 className + ".java") ;
-		FileWriter fileWriter = null ;
+										 className + ".java");
+		FileWriter fileWriter = null;
 				
 		try
 		{
-			fileWriter = new FileWriter(outputFile) ;
+			fileWriter = new FileWriter(outputFile);
 			fileWriter.write(writer.toString());
 		}
 		catch (IOException ioException)
 		{
-			throw new RuntimeException("IOException while storing the generated file: " + ioException.getMessage()) ;
+			throw new RuntimeException("IOException while storing the generated file: " + ioException.getMessage());
 		}
 		finally
 		{
@@ -117,11 +118,11 @@ public class VelocityHandler
 			{
 				try
 				{
-					fileWriter.close() ;
+					fileWriter.close();
 				}
 				catch (IOException ioException)
 				{
-					throw new RuntimeException("IOException while closing the generated file: " + ioException.getMessage()) ;
+					throw new RuntimeException("IOException while closing the generated file: " + ioException.getMessage());
 				}
 			}
 		}

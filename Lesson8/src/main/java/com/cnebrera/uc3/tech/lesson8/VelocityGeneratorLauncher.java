@@ -11,6 +11,7 @@ import com.cnebrera.uc3.tech.lesson8.velocity.VelocityHandler;
  * Launcher class - XSD Generator from JAXB Class
  * --------------------------------------
  * @author Francisco Manuel Benitez Chico
+ * @author Angel Iglesias Sanchez
  * --------------------------------------
  */
 public class VelocityGeneratorLauncher extends AbstractXMLLauncher
@@ -33,8 +34,8 @@ public class VelocityGeneratorLauncher extends AbstractXMLLauncher
 	 */
 	public static void main(final String[] args) throws IOException, JAXBException
 	{
-		final VelocityGeneratorLauncher velocityGeneratorLauncher = new VelocityGeneratorLauncher() ;
+		final VelocityGeneratorLauncher velocityGeneratorLauncher = new VelocityGeneratorLauncher();
 		
-		velocityGeneratorLauncher.generateClassfromVelocity() ;
+		velocityGeneratorLauncher.generateClassfromVelocity();
 	}
 }

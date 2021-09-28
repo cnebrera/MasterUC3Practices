@@ -11,6 +11,7 @@ import javax.xml.transform.stream.StreamResult;
  * My Schema Output Resolver
  * --------------------------------------
  * @author Francisco Manuel Benitez Chico
+ * @author Angel Iglesias Sanchez
  * --------------------------------------
  */
 public class MySchemaOutputResolver extends SchemaOutputResolver
@@ -25,6 +26,7 @@ public class MySchemaOutputResolver extends SchemaOutputResolver
     public Result createOutput(final String namespaceURI, final String suggestedFileName) throws IOException
     {
         // TODO 1
+		return null;
     }
 
 }

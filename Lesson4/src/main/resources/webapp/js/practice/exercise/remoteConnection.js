@@ -42,10 +42,8 @@ var RemoteConnection = (function ()
     		
 			// TODO 2.4 - Include here your code to create the listener 'onError' on the request
     		
-		    
 			
 			// TODO 3 - Include here your code to subscribe using the request
-		    
 			
 		    
 		    // Set isConnected to true

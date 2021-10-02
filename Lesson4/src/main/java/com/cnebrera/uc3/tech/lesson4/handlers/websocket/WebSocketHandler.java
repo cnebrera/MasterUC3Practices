@@ -1,8 +1,11 @@
 package com.cnebrera.uc3.tech.lesson4.handlers.websocket;
 
 import com.cnebrera.uc3.tech.lesson4.handlers.IPricesListener;
-import org.atmosphere.cpr.AtmosphereResourceEvent;
+import com.cnebrera.uc3.tech.lesson4.handlers.PricesPublisher;
 
+import org.atmosphere.config.service.WebSocketHandlerService;
+import org.atmosphere.cpr.AtmosphereResourceEvent;
+import org.atmosphere.util.SimpleBroadcaster;
 import org.atmosphere.websocket.WebSocket;
 import org.atmosphere.websocket.WebSocketEventListenerAdapter;
 import org.atmosphere.websocket.WebSocketStreamingHandlerAdapter;

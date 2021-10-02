@@ -7,6 +7,8 @@ import org.atmosphere.cpr.AtmosphereResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+
 /**
  * Prices Listener for Long Polling
  * --------------------------------------

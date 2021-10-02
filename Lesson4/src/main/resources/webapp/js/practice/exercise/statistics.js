@@ -34,9 +34,9 @@ var Statistics = (function ()
     Statistics.prototype.updateStatistics = function()
     {
 		// TODO 1 - Include here your code to calculate statistics!
-		
-    		
-    	this.displayStatistics() ;
+
+
+        this.displayStatistics() ;
     }
     
     /**

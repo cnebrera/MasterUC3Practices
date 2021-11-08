@@ -16,22 +16,31 @@ import java.util.Random;
 
 /**
  * Helper class to perform AES cryptography.
- *
+ * --------------------------------------
  * This class is thread safe
  */
-public class AESCrypto
-{
-    /** Random value for the key generation */
+public class AESCrypto {
+    /**
+     * Random value for the key generation
+     */
     private static final Random RND = new Random(System.currentTimeMillis());
 
-    /** Size of the AES key in bytes */
+    /**
+     * Size of the AES key in bytes
+     */
     public static final int KEY_SIZE = 16;
 
-    /** The AES key that will be used to encode / decode */
+    /**
+     * The AES key that will be used to encode / decode
+     */
     private final byte[] aesKey;
-    /** The Cipher that will encode the messages */
+    /**
+     * The Cipher that will encode the messages
+     */
     private final Cipher cipher;
-    /** The Cipher that will decode the messages */
+    /**
+     * The Cipher that will decode the messages
+     */
     private final Cipher decipher;
 
     /**
@@ -40,29 +49,24 @@ public class AESCrypto
      * @return the created instance
      * @throws Lesson5Exception exception thrown if the instance cannot be created
      */
-    public static AESCrypto createNewInstance() throws Lesson5Exception
-    {
+    public static AESCrypto createNewInstance() throws Lesson5Exception {
         // TODO 1
     }
-    
+
     /**
      * Create a new instance given the AES key that will be used to encode / decode
      *
      * @param key the key to encode and decode
      * @throws Lesson5Exception exception thrown if there is a problem creating the internal encoding classes
      */
-    public AESCrypto(final byte[] key) throws Lesson5Exception
-    {
+    public AESCrypto(final byte[] key) throws Lesson5Exception {
         // TODO 2
 
         // TODO 3
 
-        try
-        {
+        try {
             // TODO 4
-        }
-        catch(final NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException e)
-        {
+        } catch (final NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException e) {
             throw new Lesson5Exception("Error creating AES encoding classes", e);
         }
     }
@@ -70,8 +74,7 @@ public class AESCrypto
     /**
      * Return the AES key used by this encoder / decoder
      */
-    public byte[] getAESKey()
-    {
+    public byte[] getAESKey() {
         return this.aesKey;
     }
 
@@ -82,16 +85,11 @@ public class AESCrypto
      * @return the encoded message
      * @throws Lesson5Exception exception thrown if there is a problem encoding the message
      */
-    public byte[] encode(final byte[] msg) throws Lesson5Exception
-    {
-        synchronized (this.cipher)
-        {
-            try
-            {
+    public byte[] encode(final byte[] msg) throws Lesson5Exception {
+        synchronized (this.cipher) {
+            try {
                 // TODO 5
-            }
-            catch (final IllegalBlockSizeException | BadPaddingException e)
-            {
+            } catch (final IllegalBlockSizeException | BadPaddingException e) {
                 throw new Lesson5Exception("Unexpected error performing AES encode", e);
             }
         }
@@ -104,16 +102,11 @@ public class AESCrypto
      * @return the decoded message
      * @throws Lesson5Exception exception thrown if there is a problem decoding the message
      */
-    public byte[] decode(final byte[] msg) throws Lesson5Exception
-    {
-        synchronized (this.cipher)
-        {
-            try
-            {
+    public byte[] decode(final byte[] msg) throws Lesson5Exception {
+        synchronized (this.cipher) {
+            try {
                 // TODO 6
-            }
-            catch (final IllegalBlockSizeException | BadPaddingException e)
-            {
+            } catch (final IllegalBlockSizeException | BadPaddingException e) {
                 throw new Lesson5Exception("Unexpected error performing AES decode", e);
             }
         }

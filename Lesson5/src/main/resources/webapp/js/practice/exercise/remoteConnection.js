@@ -28,7 +28,7 @@ var RemoteConnection = (function ()
     	}
     	else
     	{
-		    var request = { url: document.location.toString() + 'prices/' + transportType,
+			var request = { url: document.location.origin.toString() + '/prices/' + transportType,
 		    				contentType : "application/json",
 		    				transport : transportType,
 		    				fallbackTransport: 'long-polling'} ;
@@ -51,7 +51,9 @@ var RemoteConnection = (function ()
 
 		    request.onError = function(response)
 		    {
-		    	instance.dashboard.setErrorMessage("Sorry, but there is some problem with your socket or the server is down " + response.transport) ;
+                instance.dashboard.setErrorMessage("Sorry, but there is some problem with your socket or the server is down") ;
+                console.error("Error request: ", request) ;
+                console.error("Error response: ", response) ;
 		    };
 		    
 		    // Subscribe to this topic

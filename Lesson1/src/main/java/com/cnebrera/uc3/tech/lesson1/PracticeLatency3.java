@@ -2,6 +2,7 @@ package com.cnebrera.uc3.tech.lesson1;
 
 import com.cnebrera.uc3.tech.lesson1.simulator.BaseSyncOpSimulator;
 import com.cnebrera.uc3.tech.lesson1.simulator.SyncOpSimulSleep;
+import org.HdrHistogram.ConcurrentHistogram;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,12 +13,14 @@ import java.util.concurrent.TimeUnit;
  */
 public class PracticeLatency3
 {
+    // TODO Increase constants to force worse latencies
+
     /** Number of consumer threads to run */
-    final static int NUM_THREADS = 1;
+    static final int NUM_THREADS = 1;
     /** Number of executions per thread */
-    final static int NUM_EXECUTIONS = 100;
+    static final int NUM_EXECUTIONS = 100;
     /** Expected max executions per second */
-    final static int MAX_EXPECTED_EXECUTIONS_PER_SECOND = 50;
+    static final int MAX_EXPECTED_EXECUTIONS_PER_SECOND = 50;
 
     /**
      * Main method to run the practice
@@ -33,6 +36,8 @@ public class PracticeLatency3
      */
     private static void runCalculations()
     {
+        // TODO Create two different empty concurrent histograms
+
         // Create a sleep time simulator, it will sleep for 10 milliseconds in each call
         BaseSyncOpSimulator syncOpSimulator = new SyncOpSimulSleep(10);
 
@@ -42,7 +47,8 @@ public class PracticeLatency3
         // Create the threads and start them
         for (int i = 0; i < NUM_THREADS; i ++)
         {
-            final Runner runner = new Runner(syncOpSimulator);
+            // TODO Pass the proper histograms
+            final Runner runner = new Runner(syncOpSimulator, null, null);
             runners.add(runner);
             new Thread(runner).start();
         }
@@ -61,6 +67,12 @@ public class PracticeLatency3
         /** The shared operation simulator */
         final BaseSyncOpSimulator syncOpSimulator;
 
+        /** Latency histogram*/
+        private final ConcurrentHistogram histogram;
+
+        /** Accumulated latency histogram*/
+        private final ConcurrentHistogram histogramAcc;
+
         /** True if finished */
         volatile boolean finished = false;
 
@@ -68,10 +80,14 @@ public class PracticeLatency3
          * Create a new runner
          *
          * @param syncOpSimulator shared operation simulator
+         * @param histogram latency histogram
+         * @param histogramAcc accumulated latency histogram
          */
-        private Runner(BaseSyncOpSimulator syncOpSimulator)
+        private Runner(BaseSyncOpSimulator syncOpSimulator, ConcurrentHistogram histogram, ConcurrentHistogram histogramAcc)
         {
             this.syncOpSimulator = syncOpSimulator;
+            this.histogram = histogram;
+            this.histogramAcc = histogramAcc;
         }
 
         @Override
@@ -86,11 +102,17 @@ public class PracticeLatency3
             // Execute the operation the required number of times
             for(int i = 0; i < NUM_EXECUTIONS; i++)
             {
-                // Wait until there is the time for the next call
+                // Wait until the next call must be sent
                 while(System.currentTimeMillis() < nextCallTime);
+
+                // TODO Compute latency for each operation in milliseconds
 
                 // Execute the operation, it will sleep for 10 milliseconds
                 syncOpSimulator.executeOp();
+
+                // TODO Record latency into histogram
+
+                // TODO Compute accumulated latency and record it
 
                 // Calculate the next time to call execute op
                 nextCallTime += expectedTimeBetweenCalls;

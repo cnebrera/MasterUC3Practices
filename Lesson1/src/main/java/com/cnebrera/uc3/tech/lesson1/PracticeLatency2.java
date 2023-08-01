@@ -22,15 +22,28 @@ public class PracticeLatency2
      */
     private static void runCalculations()
     {
+        // TODO Create an empty Histogram
+
         // Create a random park time simulator
         BaseSyncOpSimulator syncOpSimulator = new SyncOpSimulLongOperation();
 
-        // Execute the operation lot of times
-        for(int i = 0; i < 200000; i++)
-        {
-            syncOpSimulator.executeOp();
-        }
+        //Iterate whole cycle for warming up
+        // TODO Increase warm limit to a proper value
+        int warmLimit = 1;
+        for(int k = 0; k < warmLimit; k++) {
 
-        // TODO Show min, max, mean and percentiles 99 and 99,9 with and without warm up
+            // Execute the operation lot of times
+            for (int i = 0; i < 200000; i++) {
+                // TODO Compute latency for each operation
+
+                syncOpSimulator.executeOp();
+
+                // TODO Record latency into histogram
+            }
+
+            // TODO Show min, max, mean and percentiles 99 and 99,9 with and without warm up
+
+            // TODO Reset histogram
+        }
     }
 }

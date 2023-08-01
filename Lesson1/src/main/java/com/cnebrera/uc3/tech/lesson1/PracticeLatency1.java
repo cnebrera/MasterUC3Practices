@@ -24,13 +24,19 @@ public class PracticeLatency1
      */
     private static void runCalculations()
     {
+        // TODO Create an empty Histogram
+
         // Create a random park time simulator
         BaseSyncOpSimulator syncOpSimulator = new SyncOpSimulRndPark(TimeUnit.NANOSECONDS.toNanos(100), TimeUnit.MICROSECONDS.toNanos(100));
 
         // Execute the operation lot of times
         for(int i = 0; i < 100000; i++)
         {
+            // TODO Compute latency for each operation
+
             syncOpSimulator.executeOp();
+
+            //TODO Record latency into histogram
         }
 
         // TODO Show the percentile distribution of the latency calculation of each executeOp call

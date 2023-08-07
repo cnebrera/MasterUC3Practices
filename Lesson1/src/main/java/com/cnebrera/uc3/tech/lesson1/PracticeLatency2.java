@@ -41,7 +41,7 @@ public class PracticeLatency2
                 // TODO Record latency into histogram
             }
 
-            // TODO Show min, max, mean and percentiles 99 and 99,9 with and without warm up
+            // TODO Show min, max, mean and percentiles 99 and 99,9 with and without warm up (first and last histogram)
 
             // TODO Reset histogram
         }

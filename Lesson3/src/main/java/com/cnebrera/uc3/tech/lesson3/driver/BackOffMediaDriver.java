@@ -3,7 +3,9 @@ package com.cnebrera.uc3.tech.lesson3.driver;
 import io.aeron.driver.MediaDriver;
 import io.aeron.driver.ThreadingMode;
 import org.agrona.concurrent.BackoffIdleStrategy;
-import org.agrona.concurrent.SigIntBarrier;
+import org.agrona.concurrent.ShutdownSignalBarrier;
+
+import static org.agrona.SystemUtil.loadPropertiesFiles;
 
 /**
  * Media driver  prepared to be launched in stand alone mode. </br>
@@ -18,19 +20,17 @@ public class BackOffMediaDriver
      */
     public static void main(final String[] args)
     {
-        MediaDriver.loadPropertiesFiles(args);
+        loadPropertiesFiles(args);
 
         final MediaDriver.Context ctx = new MediaDriver.Context()
                 .threadingMode(ThreadingMode.SHARED)
-                .conductorIdleStrategy(new BackoffIdleStrategy(1, 1, 1, 1))
-                .receiverIdleStrategy(new BackoffIdleStrategy(1, 1, 1, 1))
-                .senderIdleStrategy(new BackoffIdleStrategy(1, 1, 1, 1));
+                .sharedIdleStrategy(new BackoffIdleStrategy(1, 1, 1, 1));
 
         try (final MediaDriver ignored = MediaDriver.launch(ctx))
         {
             System.out.println("Driver started...");
 
-            new SigIntBarrier().await();
+            new ShutdownSignalBarrier().await();
         }
 
         System.out.println("Driver stopped...");

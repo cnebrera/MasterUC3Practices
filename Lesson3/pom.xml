@@ -31,12 +31,18 @@
         <dependency>
             <groupId>io.aeron</groupId>
             <artifactId>aeron-client</artifactId>
-            <version>1.0</version>
+            <version>1.40.0</version>
         </dependency>
         <dependency>
             <groupId>io.aeron</groupId>
             <artifactId>aeron-driver</artifactId>
-            <version>1.0</version>
+            <version>1.40.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hdrhistogram</groupId>
+            <artifactId>HdrHistogram</artifactId>
+            <version>2.1.12</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

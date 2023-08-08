@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Practica3IMDG {
 
     public static void main(String[] args) {
-	    // Instanciar hazelcast Cliente y crear una cache
+	    // Instanciar hazelcast Cliente y crear una caché
         ClientConfig config = new ClientConfig();
         ArrayList<String> ips=new ArrayList();
         ips.add("127.0.0.1");
@@ -18,21 +18,10 @@ public class Practica3IMDG {
 
         HazelcastInstance client = HazelcastClient.newHazelcastClient( config );
 
+        //Vuestro código va aquí
 
 
-
-
-        //Vuestro código va aqui
-
-
-
-
-
-
-
-
-
-
+        //Apagar la instancia
         client.shutdown();
 
     }

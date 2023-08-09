@@ -30,7 +30,10 @@ public class VolumeListener
      */
     @Override
     public void entryAdded(EntryEvent<String, MarketOrder> entryEvent) {
-
+        // TODO Recuperar la propiedad instrument del objeto MarketOrder y comprobar si es igual a instrumentoAControlar
+        // TODO Si es igual, actualizar el volumen acumulado de este listener con el volumen del objeto MarketOrder
+        // TODO Comprobar si el volumen acumulado es mayor que 30000
+        // TODO Si es mayor, poner el volumen acumulado a 0 e imprimir por pantalla un mensaje de alerta
     }
 
     /**

@@ -57,12 +57,15 @@ public class P2VolumeProcessing {
         Map<String, Object> ret=mapCustomers.executeOnEntries(new OrderProcessor());
         //Ret contiene parejas <Clave, ObjetoRetornadoEnProcess del Processor>
 
+        // TODO Calcular la suma de todos los resultados almacenados en "ret"
         //Procesar los objetos que ha devuelto nuestro processor,
         //Recordad que nuestro processor devuelve un entero
+        //Es necesario hacer un cast a Integer de Object
         for (Map.Entry<String,Object> orderVolumes : ret.entrySet()) {
 
         }
 
+        // TODO Mostrar por pantalla el volumen total calculado anteriormente
 
         if( mapCustomers.entrySet(new EqualPredicate("volume",0)).isEmpty() ) {
             throw new Exception("Los volumenes de todos los elementos deben quedar a 0");

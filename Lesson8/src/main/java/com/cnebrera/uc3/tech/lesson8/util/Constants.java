@@ -11,10 +11,11 @@ import java.io.File;
  */
 public final class Constants
 {
+	public static final String ROOT = "Lesson8";
 	/** Constant - Java folder */
-	public static final String JAVA_FOLDER		      			  = "src" + File.separator + "main" + File.separator + "java";
+	public static final String JAVA_FOLDER		      			  = ROOT + File.separator + "src" + File.separator + "main" + File.separator + "java";
 	/** Constant - Resources folder */
-	public static final String RESOURCES_FOLDER	      			  = "src" + File.separator + "main" + File.separator + "resources";
+	public static final String RESOURCES_FOLDER	      			  = ROOT + File.separator + "src" + File.separator + "main" + File.separator + "resources";
 	
 	/** Constant - File input */
 	public static final String XSD_FILE_INPUT	      			  = Constants.RESOURCES_FOLDER + File.separator + "practice8.xsd";

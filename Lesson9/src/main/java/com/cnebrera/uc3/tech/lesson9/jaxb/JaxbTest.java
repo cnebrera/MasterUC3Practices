@@ -20,9 +20,9 @@ import java.nio.file.Paths;
 public class JaxbTest
 {
     /** a org.slf4j.Logger with the instance of this class given by org.slf4j.LoggerFactory */
-    private final static Logger LOGGER = LoggerFactory.getLogger(JaxbTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JaxbTest.class);
 
-    private final static JaxbSerializer jaxbSerializer = new JaxbSerializer();
+    private static final JaxbSerializer jaxbSerializer = new JaxbSerializer();
 
     public static void main(String[] args) throws URISyntaxException, IOException
     {

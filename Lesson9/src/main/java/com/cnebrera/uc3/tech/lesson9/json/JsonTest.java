@@ -20,10 +20,10 @@ import java.nio.file.Paths;
 public class JsonTest
 {
     /** a org.slf4j.Logger with the instance of this class given by org.slf4j.LoggerFactory */
-    private final static Logger LOGGER = LoggerFactory.getLogger(JsonTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JsonTest.class);
 
-    private final static JaxbSerializer jaxbSerializer = new JaxbSerializer();
-    private final static JsonSerializer jsonSerializer = new JsonSerializer();
+    private static final JaxbSerializer jaxbSerializer = new JaxbSerializer();
+    private static final JsonSerializer jsonSerializer = new JsonSerializer();
 
     public static void main(String[] args) throws URISyntaxException, IOException
     {

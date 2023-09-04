@@ -20,10 +20,10 @@ import java.nio.file.Paths;
 public class KryoTest
 {
     /** a org.slf4j.Logger with the instance of this class given by org.slf4j.LoggerFactory */
-    private final static Logger LOGGER = LoggerFactory.getLogger(KryoTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(KryoTest.class);
 
-    private final static JsonSerializer jsonSerializer = new JsonSerializer();
-    private final static KryoSerializer kryoSerializer = new KryoSerializer();
+    private static final JsonSerializer jsonSerializer = new JsonSerializer();
+    private static final KryoSerializer kryoSerializer = new KryoSerializer();
 
     public static void main(String[] args) throws URISyntaxException, IOException
     {

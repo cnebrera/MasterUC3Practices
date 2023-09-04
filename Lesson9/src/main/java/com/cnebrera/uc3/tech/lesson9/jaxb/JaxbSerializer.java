@@ -20,7 +20,7 @@ import java.io.StringWriter;
 public class JaxbSerializer implements Serializer<ReferenceData, String>
 {
     /** a org.slf4j.Logger with the instance of this class given by org.slf4j.LoggerFactory */
-    private final static Logger LOGGER = LoggerFactory.getLogger(JaxbSerializer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JaxbSerializer.class);
 
     /** The {@link javax.xml.bind.Marshaller} in order to serialize the xml */
     private Marshaller marshaller;

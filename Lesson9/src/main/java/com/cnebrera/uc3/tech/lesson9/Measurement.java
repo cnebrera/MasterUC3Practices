@@ -9,7 +9,6 @@ import com.cnebrera.uc3.tech.lesson9.proto.ProtoSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -21,14 +20,14 @@ import java.nio.file.Paths;
  */
 public class Measurement
 {
-    private static long NUM_ITERATIONS = 100000000;
+    private static final long NUM_ITERATIONS = 100000000;
     /** a org.slf4j.Logger with the instance of this class given by org.slf4j.LoggerFactory */
-    private final static Logger LOGGER = LoggerFactory.getLogger(Measurement.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Measurement.class);
 
-    private final static JaxbSerializer jaxbSerializer = new JaxbSerializer();
-    private final static JsonSerializer jsonSerializer = new JsonSerializer();
-    private final static KryoSerializer kryoSerializer = new KryoSerializer();
-    private final static ProtoSerializer protoSerializer = new ProtoSerializer();
+    private static final JaxbSerializer jaxbSerializer = new JaxbSerializer();
+    private static final JsonSerializer jsonSerializer = new JsonSerializer();
+    private static final KryoSerializer kryoSerializer = new KryoSerializer();
+    private static final ProtoSerializer protoSerializer = new ProtoSerializer();
 
     public static void main(String[] args) throws URISyntaxException, IOException
     {
@@ -65,7 +64,7 @@ public class Measurement
         testPerformanceSerialization(referenceData, referenceDataProto);
 
         //Test performance deserialization
-        testPerformanceDeSerialization(str, jsonSerializer.serialize(referenceData), kryoSerializer.serialize(referenceData), referenceDataProto.toByteArray());
+        testPerformanceDeSerialization(str.getBytes(), jsonSerializer.serialize(referenceData).getBytes(), kryoSerializer.serialize(referenceData), referenceDataProto.toByteArray());
 
         //Test performance serialization and deserialization
         testPerformanceSerializationAndDeserialization(referenceData, referenceDataProto);
@@ -77,7 +76,7 @@ public class Measurement
         long jaxbSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWith Serialization
+            //TODO Serialize referenceData to String and transform it to bytes
         }
         long jaxbSerializationFin = System.nanoTime();
         long meanJaxb = (jaxbSerializationFin - jaxbSerializationIni)/NUM_ITERATIONS;
@@ -86,7 +85,7 @@ public class Measurement
         long jsonSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWith Serialization
+            //TODO Serialize referenceData to String and transform it to bytes
         }
         long jsonSerializationFin = System.nanoTime();
         long meanJson = (jsonSerializationFin - jsonSerializationIni)/NUM_ITERATIONS;
@@ -95,7 +94,7 @@ public class Measurement
         long protoSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWith Serialization
+            //TODO Serialize referenceData
         }
         long protoSerializationFin = System.nanoTime();
         long meanProto = (protoSerializationFin - protoSerializationIni)/NUM_ITERATIONS;
@@ -104,19 +103,23 @@ public class Measurement
         long kryoSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWith Serialization
+            //TODO Serialize referenceData
         }
         long kryoSerializationFin = System.nanoTime();
         long meanKryo = (kryoSerializationFin - kryoSerializationIni)/NUM_ITERATIONS;
+
+        //TODO Show all means using the LOGGER
+        LOGGER.info("Results for Serialization");
+
     }
 
-    private static void testPerformanceDeSerialization(String jaxbSerialize, String jsonSerlize, byte[] kryoSerialize, byte[] protoSerialize)
+    private static void testPerformanceDeSerialization(byte[] jaxbSerialize, byte[] jsonSerialize, byte[] kryoSerialize, byte[] protoSerialize)
     {
         //JAXB serialization
         long jaxbSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWithDeserialization
+            //TODO Transform jaxbSerialize to String and deserialize
         }
         long jaxbSerializationFin = System.nanoTime();
         long meanJaxb = (jaxbSerializationFin - jaxbSerializationIni)/NUM_ITERATIONS;
@@ -125,7 +128,7 @@ public class Measurement
         long jsonSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWithDeserialization
+            //TODO Transform jsonSerialize to String and deserialize
         }
         long jsonSerializationFin = System.nanoTime();
         long meanJson = (jsonSerializationFin - jsonSerializationIni)/NUM_ITERATIONS;
@@ -134,7 +137,7 @@ public class Measurement
         long protoSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWithDeserialization
+            //TODO Deserialize protoSerialize
         }
         long protoSerializationFin = System.nanoTime();
         long meanProto = (protoSerializationFin - protoSerializationIni)/NUM_ITERATIONS;
@@ -143,10 +146,14 @@ public class Measurement
         long kryoSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWithDeserialization
+            //TODO Deserialize kryoSerialize
         }
         long kryoSerializationFin = System.nanoTime();
         long meanKryo = (kryoSerializationFin - kryoSerializationIni)/NUM_ITERATIONS;
+
+        //TODO Show all means using the LOGGER
+        LOGGER.info("Results for Deserialization");
+
     }
 
     private static void testPerformanceSerializationAndDeserialization(ReferenceData referenceData, Lesson9.ReferenceData referenceDataProto)
@@ -155,7 +162,7 @@ public class Measurement
         long jaxbSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWith Serialization And Deserialization
+            //TODO Serialize referenceData to String, transform it to bytes, transform it back to String and deserialize
         }
         long jaxbSerializationFin = System.nanoTime();
         long meanJaxb = (jaxbSerializationFin - jaxbSerializationIni)/NUM_ITERATIONS;
@@ -164,7 +171,7 @@ public class Measurement
         long jsonSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWith Serialization And Deserialization
+            //TODO Serialize referenceData to String, transform it to bytes, transform it back to String and deserialize
         }
         long jsonSerializationFin = System.nanoTime();
         long meanJson = (jsonSerializationFin - jsonSerializationIni)/NUM_ITERATIONS;
@@ -173,7 +180,7 @@ public class Measurement
         long protoSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWith Serialization And Deserialization
+            //TODO Serialize referenceData to bytes and deserialize
         }
         long protoSerializationFin = System.nanoTime();
         long meanProto = (protoSerializationFin - protoSerializationIni)/NUM_ITERATIONS;
@@ -182,10 +189,14 @@ public class Measurement
         long kryoSerializationIni = System.nanoTime();
         for (int i = 0; i < NUM_ITERATIONS; i++)
         {
-            //TODO fillWith Serialization And Deserialization
+            //TODO Serialize referenceData to bytes and deserialize
         }
         long kryoSerializationFin = System.nanoTime();
         long meanKryo = (kryoSerializationFin - kryoSerializationIni)/NUM_ITERATIONS;
+
+        //TODO Show all means using the LOGGER
+        LOGGER.info("Results for Serialization-Deserialization");
+
     }
 }
 

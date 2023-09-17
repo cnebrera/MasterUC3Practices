@@ -6,8 +6,7 @@ import java.util.Random;
 /**
  * Represents a simple message
  */
-public class FixSizeMessage
-{
+public class FixSizeMessage {
     /** Random number generator */
     private final static Random RND = new Random();
 
@@ -23,8 +22,7 @@ public class FixSizeMessage
     /** Volume */
     private final int volume;
 
-    public FixSizeMessage(int instrument, double price, int volume)
-    {
+    public FixSizeMessage(int instrument, double price, int volume) {
         this.instrument = instrument;
         this.price = price;
         this.volume = volume;
@@ -35,8 +33,7 @@ public class FixSizeMessage
      *
      * @param buffer the buffer that will store the serialized message
      */
-    public void toBinary(final ByteBuffer buffer)
-    {
+    public void toBinary(final ByteBuffer buffer) {
         buffer.putInt(instrument);
         buffer.putDouble(price);
         buffer.putInt(volume);
@@ -44,11 +41,11 @@ public class FixSizeMessage
 
     /**
      * Read the msg from binary
+     * 
      * @param buffer the buffer containing the message
      * @return the read message
      */
-    public static FixSizeMessage readMsgFromBinary(final ByteBuffer buffer)
-    {
+    public static FixSizeMessage readMsgFromBinary(final ByteBuffer buffer) {
         return new FixSizeMessage(
                 buffer.getInt(),
                 buffer.getDouble(),
@@ -56,14 +53,12 @@ public class FixSizeMessage
     }
 
     /** Generates a random message */
-    public static FixSizeMessage generateRandomMsg()
-    {
+    public static FixSizeMessage generateRandomMsg() {
         return new FixSizeMessage(RND.nextInt(), RND.nextDouble(), RND.nextInt());
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "FixSizeMessage{" +
                 "instrument=" + instrument +
                 ", price=" + price +

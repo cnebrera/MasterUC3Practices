@@ -23,7 +23,7 @@
         <commonsCodec-version>1.15</commonsCodec-version>
         <jackson-version>2.12.7.1</jackson-version>
         <jetty9-version>9.4.28.v20200408</jetty9-version>
-        <logback-version>1.2.0</logback-version>
+        <logback-version>1.2.13</logback-version>
     </properties>
 
     <build>

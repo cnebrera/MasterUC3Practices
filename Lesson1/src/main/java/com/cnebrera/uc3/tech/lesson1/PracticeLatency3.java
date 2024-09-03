@@ -13,14 +13,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class PracticeLatency3
 {
-    // TODO Increase constants to force worse latencies
-
     /** Number of consumer threads to run */
-    static final int NUM_THREADS = 1;
+    static final int NUM_THREADS = 4;
     /** Number of executions per thread */
     static final int NUM_EXECUTIONS = 100;
     /** Expected max executions per second */
-    static final int MAX_EXPECTED_EXECUTIONS_PER_SECOND = 50;
+    static final int MAX_EXPECTED_EXECUTIONS_PER_SECOND = 500;
 
     /**
      * Main method to run the practice

@@ -54,13 +54,11 @@ public class LatencySubscriber
                     final byte[] data = new byte[length];
                     buffer.getBytes(offset, data);
 
-                    // TODO Convert data to string
+                    final String rcvMessage = new String(data);
 
-                    // TODO Print received message
                     System.out.printf(
                             "Received message (%s) to stream %d from session %x term id %x term offset %d (%d@%d)%n",
-                            "?", // TODO Pass the proper variable here
-                            streamId, header.sessionId(), header.termId(), header.termOffset(), length, offset);
+                        rcvMessage, streamId, header.sessionId(), header.termId(), header.termOffset(), length, offset);
 
                     // TODO Extract send time and delay time from message
 

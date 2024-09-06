@@ -57,18 +57,31 @@ public class LatencyPublisher
                 Thread.sleep(1);
             }
 
-            // TODO Calculate the next call time
+            // Calculate the next call time
+            long nextCallTime = System.currentTimeMillis();
+
+            long successfullySent = 0;
 
             // Sending multiple messages
             for(int i=0; i < Constants.NUM_MESSAGES; i++){
-                // TODO Wait until the next call must be sent
+                // Wait until the next call must be sent
+                while(System.currentTimeMillis() < nextCallTime);
 
-                // TODO Compute delay and compose a proper message
+                // TODO Compute delay
+                long delay = 0L;
+
+                // TODO Get current time in milliseconds
+                long currTime = 0L;
+
+                // TODO Compose a message with the delay and the current time
+                final String message = "";
+
+                final byte[] messageBytes = message.getBytes();
+                buffer.putBytes(0, messageBytes);
 
                 // Try to publish the buffer. 'offer' is a non-blocking call.
                 // If it returns less than 0, the message was not sent, and the offer should be retried.
-                // TODO Set the proper message length according to its bytes
-                final long result = publication.offer(buffer, 0, 0);
+                final long result = publication.offer(buffer, 0, messageBytes.length);
 
                 if (result < 0L)
                 {
@@ -95,14 +108,15 @@ public class LatencyPublisher
                 }
                 else
                 {
-                    // TODO Print the message sent
-                    System.out.println(i + " yay !! ");
+                    System.out.println(i + " yay !! " + message + " sent");
+                    successfullySent++;
                 }
 
-                // TODO Update next call time value for next iteration
+                nextCallTime += Constants.EXPECTED_TIME_BETWEEN_CALLS;
 
             }
 
+            System.out.println("Successfully sent " + successfullySent);
             System.out.println("Done sending.");
         }
     }

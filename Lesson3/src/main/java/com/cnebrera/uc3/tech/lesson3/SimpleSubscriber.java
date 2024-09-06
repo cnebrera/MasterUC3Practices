@@ -55,10 +55,11 @@ public class SimpleSubscriber
                     // TODO Convert received data to a string message
 
                     // TODO Print received message
+
                     System.out.printf(
-                            "Received message (%s) to stream %d from session %x term id %x term offset %d (%d@%d)%n",
-                            "?",// TODO Put your message here
-                            streamId, header.sessionId(), header.termId(), header.termOffset(), length, offset);
+                        "Received message to stream %d from session %x term id %x term offset %d (%d@%d)%n",
+                        streamId, header.sessionId(),
+                        header.termId(), header.termOffset(), length, offset);
 
                     int num = successfullyReceived.incrementAndGet();
                     if(num >= expectedMessages) {

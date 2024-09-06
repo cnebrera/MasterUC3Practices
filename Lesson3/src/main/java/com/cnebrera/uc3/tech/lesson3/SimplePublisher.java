@@ -61,11 +61,13 @@ public class SimplePublisher
             for(int i=0; i < Constants.NUM_MESSAGES; i++){
 
                 // TODO Create a string message to send and put it on the buffer
+                final String message = "Hello World!";
+                final byte[] messageBytes = message.getBytes();
+                buffer.putBytes(0, messageBytes);
 
                 // Try to publish the buffer. 'offer' is a non-blocking call.
                 // If it returns less than 0, the message was not sent, and the offer should be retried.
-                // TODO Set the proper message length according to its bytes
-                final long result = publication.offer(buffer, 0, 0);
+                final long result = publication.offer(buffer, 0, messageBytes.length);
 
                 if (result < 0L)
                 {
@@ -92,8 +94,7 @@ public class SimplePublisher
                 }
                 else
                 {
-                    // TODO Print the message sent
-                    System.out.println(i + " yay !! ");
+                    System.out.println(i + " yay !! " + message + " sent");
                 }
 
             }

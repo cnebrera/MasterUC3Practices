@@ -20,6 +20,13 @@ public class Practica3IMDG {
 
         //Vuestro código va aquí
 
+        // TODO Crear una caché llamada customers
+
+        // TODO Obtener el valor guardado en la caché para la clave “Test” y mostrarlo por pantalla
+
+        // TODO Añadir una entrada a la caché con la clave “Test” y un valor con vuestras iniciales
+
+        // TODO Obtener el valor guardado en la caché para la clave “Test” y mostrarlo por pantalla
 
         //Apagar la instancia
         client.shutdown();

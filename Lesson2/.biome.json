@@ -1,0 +1,16 @@
+{
+    "files": {
+      "ignore": ["node_modules", "dist"]
+    },
+    "formatter": {
+      "indentStyle": "space",
+      "indentSize": 4
+    },
+    "lint": {
+      "rules": {
+        "correctness": {
+          "noUnusedVariables": "error"
+        }
+      }
+    }
+  }

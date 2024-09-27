@@ -34,7 +34,7 @@ var Dashboard = (function ()
     	{
     		// Generate a new DIV with all the content
     		var labelInstrumentName = this.labelGenerator(instrument.instrumentName, "_instrumentName", instrument.instrumentName) ;
-    		var labelState 			= this.labelGenerator(instrument.instrumentName, "_state", "Open") ;
+    		var labelProduct 		= this.labelGenerator(instrument.instrumentName, "_product", instrument.product) ;
     		var labelPrice 			= this.labelGenerator(instrument.instrumentName, "_price", "Price: "   + fixedPrice) ;
     		var labelVolume 		= this.labelGenerator(instrument.instrumentName, "_volume", "Volume: " + instrument.volume) ;
     		
@@ -42,7 +42,7 @@ var Dashboard = (function ()
     		   							 "' data-product='" + instrument.product 		+ "' data-instrument='" 			 	  + instrument.instrumentName + "'>" ;
     		var instrumentDivFinish = "</div>" ;
     		
-    		this.common.getJQueryRef("prices").append(instrumentDivStart + labelInstrumentName + labelState + labelPrice + labelVolume + instrumentDivFinish) ;
+    		this.common.getJQueryRef("prices").append(instrumentDivStart + labelInstrumentName + labelProduct + labelPrice + labelVolume + instrumentDivFinish) ;
     	}
     	
     	// Add new message to the statistics

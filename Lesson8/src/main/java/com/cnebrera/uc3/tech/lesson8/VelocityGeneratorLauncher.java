@@ -1,41 +1,40 @@
 package com.cnebrera.uc3.tech.lesson8;
 
-import java.io.IOException;
-
-import javax.xml.bind.JAXBException;
-
 import com.cnebrera.uc3.tech.lesson8.util.Constants;
 import com.cnebrera.uc3.tech.lesson8.velocity.VelocityHandler;
 
+import java.io.IOException;
+
 /**
- * Launcher class - XSD Generator from JAXB Class
+ * Launcher class - Velocity generator
  * --------------------------------------
- * @author Francisco Manuel Benitez Chico
+ *
  * @author Angel Iglesias Sanchez
  * --------------------------------------
  */
-public class VelocityGeneratorLauncher extends AbstractXMLLauncher
-{
-	/**
-	 * @throws IOException   with an occurred exception
-	 * @throws JAXBException with an occurred exception
-	 */
-	protected void generateClassfromVelocity() throws IOException, JAXBException
-	{
-		// TODO 1
-		
-		// TODO 2
-	}
-	
-	/**
-	 * @param args 			 with the input arguments
-	 * @throws IOException   with an occurred exception
-	 * @throws JAXBException with an occurred exception
-	 */
-	public static void main(final String[] args) throws IOException, JAXBException
-	{
-		final VelocityGeneratorLauncher velocityGeneratorLauncher = new VelocityGeneratorLauncher();
-		
-		velocityGeneratorLauncher.generateClassfromVelocity();
-	}
+public class VelocityGeneratorLauncher {
+  /**
+   * @throws IOException with an occurred exception
+   */
+  protected void generateClassfromVelocity() {
+    // TODO 1
+    // Create a new instance of the Velocity Handler
+    final VelocityHandler velocityHandler = new VelocityHandler();
+
+    // TODO 2
+    // Generate the class
+    velocityHandler.generateClassFromVelocityTemplate(Constants.VELOCITY_CLASS_GENERATED_PACKAGE, Constants.VELOCITY_CLASS_GENERATED_CLASSNAME);
+
+  }
+
+  /**
+   * @param args with the input arguments
+   * @throws IOException with an occurred exception
+   */
+  public static void main(final String[] args) {
+    final VelocityGeneratorLauncher velocityGeneratorLauncher = new VelocityGeneratorLauncher();
+
+    velocityGeneratorLauncher.generateClassfromVelocity();
+  }
+
 }

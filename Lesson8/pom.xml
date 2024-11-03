@@ -8,17 +8,8 @@
 
 	<description>This is the project for the Lesson 8</description>
 
-	<contributors>
-		<contributor>
-			<name>Francisco Manuel Benitez Chico</name>
-			<email>paco.benitez.chico@gmail.com</email>
-			<url>http://www.pacobenitezchico.com</url>
-		</contributor>
-	</contributors>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<velocityVersion>1.7</velocityVersion>
 	</properties>
 
 	<build>
@@ -61,8 +52,18 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
-			<artifactId>velocity</artifactId>
-			<version>${velocityVersion}</version>
+			<artifactId>velocity-engine-core</artifactId>
+			<version>2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity.tools</groupId>
+			<artifactId>velocity-tools-generic</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.30</version>
 		</dependency>
 	</dependencies>
 </project>

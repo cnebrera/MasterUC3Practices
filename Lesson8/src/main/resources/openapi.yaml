@@ -1,0 +1,71 @@
+openapi: 3.0.3
+info:
+  title: "Example API"
+  version: "1.0.0"
+servers:
+  - url: http://localhost:8080/v1
+    description: Optional description
+paths:
+  /users:
+    get:
+      summary: Get all users.
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+    post:
+      summary: Create a user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: string
+  /users/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema: {}
+    get:
+      summary: Get a user by its id.
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: string
+    put:
+      summary: Update a user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: string
+    delete:
+      summary: Delete a user.
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema: {}

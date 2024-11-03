@@ -106,7 +106,7 @@ public class PriceSimulator implements Runnable {
 
         // New instance of PriceMessage
         final PriceMessage priceMessage = new PriceMessage(Constants.PREFIX_INSTRUMENT_MARKET,
-                Constants.PREFIX_INSTRUMENT_PRODUCT,
+                String.format("%s / %d", Constants.PREFIX_INSTRUMENT_PRODUCT, sleepTime),
                 Constants.PREFIX_INSTRUMENT_NAME,
                 level,
                 newPrice,

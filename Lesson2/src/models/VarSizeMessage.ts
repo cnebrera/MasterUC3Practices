@@ -38,8 +38,8 @@ class VarSizeMessage {
         // TODO 5: Serialize the instrument, price and volume into the buffer
         // Hint: Use `buffer.writeInt32BE` for integers and `buffer.writeDoubleBE` for the floating-point number.
         // buffer.;     // Instrument: 4 bytes
-        // buffer.;     // Price: 4 bytes
-        // buffer.;     // Volume: 8 bytes
+        // buffer.;     // Price: 8 bytes
+        // buffer.;     // Volume: 4 bytes
         metadataBinary.copy(buffer, 16);
 
         return buffer;

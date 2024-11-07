@@ -7,6 +7,8 @@ import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
 
+import java.util.ArrayList;
+
 
 /**
  * Kryo Serializer
@@ -19,8 +21,8 @@ public class KryoSerializer implements Serializer<ReferenceData, byte[]> {
     kryo = new Kryo();
     kryo.register(ReferenceData.class);
     kryo.register(Instrument.class);
+    kryo.register(ArrayList.class);
   }
-
 
   public byte[] serialize(ReferenceData referenceData) {
     Output output = new Output(1024);

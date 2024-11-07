@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 /**
- * Created by alexvarela on 23/11/16.
+ * JSON Serializer
  */
 public class JsonSerializer implements Serializer<ReferenceData, String>
 {

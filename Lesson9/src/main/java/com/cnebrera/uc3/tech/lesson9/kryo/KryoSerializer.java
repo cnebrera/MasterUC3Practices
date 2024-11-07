@@ -9,30 +9,26 @@ import com.esotericsoftware.kryo.io.Output;
 
 
 /**
- * Created by alexvarela on 23/11/16.
+ * Kryo Serializer
  */
-public class KryoSerializer implements Serializer<ReferenceData, byte[]>
-{
+public class KryoSerializer implements Serializer<ReferenceData, byte[]> {
 
-    private final Kryo kryo;
+  private final Kryo kryo;
 
-    public KryoSerializer()
-    {
-        kryo = new Kryo();
-        kryo.register(ReferenceData.class);
-        kryo.register(Instrument.class);
-    }
+  public KryoSerializer() {
+    kryo = new Kryo();
+    kryo.register(ReferenceData.class);
+    kryo.register(Instrument.class);
+  }
 
 
-    public byte[] serialize(ReferenceData referenceData)
-    {
-        Output output = new Output(1024);
-        kryo.writeObject( output, referenceData);
-        return output.getBuffer();
-    }
+  public byte[] serialize(ReferenceData referenceData) {
+    Output output = new Output(1024);
+    kryo.writeObject(output, referenceData);
+    return output.getBuffer();
+  }
 
-    public ReferenceData deserialize(byte[] rawData)
-    {
-        return kryo.readObject(new Input(rawData), ReferenceData.class);
-    }
+  public ReferenceData deserialize(byte[] rawData) {
+    return kryo.readObject(new Input(rawData), ReferenceData.class);
+  }
 }

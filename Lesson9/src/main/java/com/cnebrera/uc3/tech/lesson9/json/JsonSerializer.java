@@ -10,44 +10,37 @@ import java.io.IOException;
 /**
  * JSON Serializer
  */
-public class JsonSerializer implements Serializer<ReferenceData, String>
-{
+public class JsonSerializer implements Serializer<ReferenceData, String> {
 
-    /** The {@link com.fasterxml.jackson.databind.ObjectMapper} that helps to JSON serialization */
-    private final ObjectMapper mapper;
+  /**
+   * The {@link com.fasterxml.jackson.databind.ObjectMapper} that helps to JSON serialization
+   */
+  private final ObjectMapper mapper;
 
-    public JsonSerializer()
-    {
-        this.mapper = new ObjectMapper();
+  public JsonSerializer() {
+    this.mapper = new ObjectMapper();
+  }
+
+  public String serialize(ReferenceData referenceData) {
+    String result = null;
+    try {
+      result = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(referenceData);
+    } catch (JsonProcessingException e) {
+      System.err.println(e);
     }
 
-    public String serialize(ReferenceData referenceData)
-    {
-        String result = null;
-        try
-        {
-            result=  mapper.writerWithDefaultPrettyPrinter().writeValueAsString(referenceData);
-        }
-        catch (JsonProcessingException e)
-        {
-            System.err.println(e);
-        }
+    return result;
+  }
 
-        return result;
+  public ReferenceData deserialize(String rawData) {
+    ReferenceData referenceData = null;
+    try {
+      referenceData = mapper.readValue(rawData, ReferenceData.class);
+      ;
+    } catch (IOException e) {
+      System.err.println(e);
     }
 
-    public ReferenceData deserialize(String rawData)
-    {
-        ReferenceData referenceData = null;
-        try
-        {
-            referenceData =  mapper.readValue(rawData, ReferenceData.class);;
-        }
-        catch (IOException e)
-        {
-            System.err.println(e);
-        }
-
-        return referenceData;
-    }
+    return referenceData;
+  }
 }

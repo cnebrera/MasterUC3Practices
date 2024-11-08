@@ -55,7 +55,7 @@ public class Measurement {
     // Set the parameters in the builder using the values read in referenceData from JSON to ensure both have the same contents
     referenceDataBuilder.setMarketId(referenceData.getMarketId())
         .setAlgorithmIdentifier(referenceData.getAlgorithmIdentifier());
-    for (Instrument value: referenceData.getListOfInstruments()) {
+    for (Instrument value : referenceData.getListOfInstruments()) {
       referenceDataBuilder.addInstrument(Lesson9.Instrument.newBuilder()
           .setInstrumentId(value.getInstrumentId())
           .setSymbol(value.getSymbol()));
@@ -81,38 +81,49 @@ public class Measurement {
   private static void testPerformanceSerialization(ReferenceData referenceData, Lesson9.ReferenceData referenceDataProto) {
     //JAXB serialization
     long jaxbSerializationIni = System.nanoTime();
+    String obj = "";
+    byte[] objJaxb = null;
     for (int i = 0; i < NUM_ITERATIONS; i++) {
       //TODO Serialize referenceData to String and transform it to bytes
+      //TODO store result in objJaxb
     }
     long jaxbSerializationFin = System.nanoTime();
     long meanJaxb = (jaxbSerializationFin - jaxbSerializationIni) / NUM_ITERATIONS;
 
     //Json serialization
     long jsonSerializationIni = System.nanoTime();
+    byte[] objJson = null;
     for (int i = 0; i < NUM_ITERATIONS; i++) {
       //TODO Serialize referenceData to String and transform it to bytes
+      //TODO store result in objJson
     }
     long jsonSerializationFin = System.nanoTime();
     long meanJson = (jsonSerializationFin - jsonSerializationIni) / NUM_ITERATIONS;
 
     //Protocol Buffers serialization
     long protoSerializationIni = System.nanoTime();
+    byte[] objProto = null;
     for (int i = 0; i < NUM_ITERATIONS; i++) {
       //TODO Serialize referenceData to bytes
+      //TODO store result in objProto
     }
     long protoSerializationFin = System.nanoTime();
     long meanProto = (protoSerializationFin - protoSerializationIni) / NUM_ITERATIONS;
 
     //Kryo serialization
     long kryoSerializationIni = System.nanoTime();
+    byte[] objKryo = null;
     for (int i = 0; i < NUM_ITERATIONS; i++) {
       //TODO Serialize referenceData to bytes
+      //TODO store result in objKryo
     }
     long kryoSerializationFin = System.nanoTime();
     long meanKryo = (kryoSerializationFin - kryoSerializationIni) / NUM_ITERATIONS;
 
     //TODO Show ALL saved means using the LOGGER
     LOGGER.info("Results for Serialization");
+
+    //TODO Show ALL saved object sizes using the LOGGER
 
   }
 

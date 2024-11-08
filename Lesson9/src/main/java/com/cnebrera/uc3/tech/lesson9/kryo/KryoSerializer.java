@@ -27,7 +27,7 @@ public class KryoSerializer implements Serializer<ReferenceData, byte[]> {
   public byte[] serialize(ReferenceData referenceData) {
     Output output = new Output(1024);
     kryo.writeObject(output, referenceData);
-    return output.getBuffer();
+    return output.toBytes();
   }
 
   public ReferenceData deserialize(byte[] rawData) {

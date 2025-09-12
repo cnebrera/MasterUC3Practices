@@ -78,11 +78,11 @@ public class TCPClient {
         System.out.printf("Connecting to %s:%d for %d seconds%n", host, port, durationSeconds);
 
         try (
-            // TODO 1.1: Create the client socket
+            // TODO 1.1: Create the client socket for the given host and port
         ) {
             System.out.println("Connected to server");
 
-            // TODO 1.2: Get the input stream
+            // TODO 1.2: Get the input stream from the socket
 
             PerformanceMetrics metrics = new PerformanceMetrics("TCP");
             System.out.println("Receiving messages...");
@@ -154,7 +154,7 @@ public class TCPClient {
 
         byte[] msgBytes = new byte[msgSize];
 
-        // TODO 2.4: Read the payload bytes
+        // TODO 2.4: Read the payload bytes using NetIO.readFully
 
         // TODO 2.5: Parse the message using MarketMessage.fromBinary (replace return
         // null with the message)

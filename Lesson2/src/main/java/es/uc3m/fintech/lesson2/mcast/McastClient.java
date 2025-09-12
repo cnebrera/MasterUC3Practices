@@ -92,11 +92,11 @@ public class McastClient {
         // Create a buffer of bytes, which will be used to store the received messages
         final ByteBuffer receiveBuffer = ByteBuffer.allocate(1024);
 
-        // TODO 1: Create a new multicast socket for the given port
+        // TODO 1: Create a new MulticastSocket for the given port
 
         // TODO 2: Join multicast group by address
-        // Hint: Use new InetSocketAddress to join the multicast group and null for the
-        // network interface
+        // Hint: Use clientSocket.joinGroup(InetSocketAddress, NetworkInterface) to join the multicast group
+        // Create InetSocketAddress with the multicast address and port, pass null for NetworkInterface to use default
 
         System.out.printf("Joined multicast group %s:%d%n", multicastAddress, port);
         System.out.printf("Receiving messages for %d seconds...%n", durationSeconds);
@@ -110,7 +110,7 @@ public class McastClient {
             while (System.currentTimeMillis() < endTime) {
                 long startTime = System.nanoTime();
 
-                // TODO 3: Receive the next message (replace null with the message)
+                // TODO 3: Receive the next message by calling receiveMessage
                 MarketMessage message = null;
 
                 printMessage(message, metrics.getMessageCount());
@@ -152,7 +152,7 @@ public class McastClient {
         // Create a datagram to receive the next message
         final DatagramPacket msgPacket = new DatagramPacket(receiveBuffer.array(), receiveBuffer.capacity());
 
-        // TODO 4: Receive the next message
+        // TODO 4: Receive the next message from the client socket
 
         // Set the limits of the buffer with the received datagram information
         receiveBuffer.limit(msgPacket.getLength());

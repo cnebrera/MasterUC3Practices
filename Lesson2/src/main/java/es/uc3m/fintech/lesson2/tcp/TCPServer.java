@@ -80,20 +80,19 @@ public class TCPServer {
     /**
      * Runs the TCP server with the specified parameters
      * 
-     * @param port         the port number to listen on
-     * @param metadataSize the maximum size of metadata in generated messages
-     * @param rate         the rate of messages to send per second
+     * @param port            the port number to listen on
+     * @param maxMetadataSize the maximum size of metadata in generated messages
+     * @param rate            the rate of messages to send per second
      * @throws IOException          if there's an error with network operations
      * @throws InterruptedException if the thread is interrupted during sleep
      */
-    private static void runServer(int port, int metadataSize, int rate)
+    private static void runServer(int port, int maxMetadataSize, int rate)
             throws IOException, InterruptedException {
                 System.out.printf("[Server] Listening on port %d (%d msg/s)%n", port, rate);
 
         try (
-            // TODO 1.1: Create the acceptor socket
+            // TODO 1.1: Create the server socket with the given port
         ) {
-
             // TODO 1.2: Accept a connection and get the connection socket
 
             // TODO 1.3: Send messages to the connected client socket
@@ -125,7 +124,7 @@ public class TCPServer {
                 int messageSize = payload.limit();
 
                 // TODO 2.2: Add protocol header (4-byte message size)
-                // Hint: Use ByteBuffer to allocate a 4 bytes and put the message size into it.
+                // Hint: Use ByteBuffer to allocate a 4 bytes, put the message size (int) into it and cover it to byte array
 
                 // TODO 2.3: Write the header to the output stream (reliable delivery)
 

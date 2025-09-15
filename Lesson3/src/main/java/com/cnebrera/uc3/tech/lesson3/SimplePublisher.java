@@ -60,7 +60,7 @@ public class SimplePublisher
             // Sending multiple messages
             for(int i=0; i < Constants.NUM_MESSAGES; i++){
 
-                // TODO Create a string message to send and put it on the buffer
+                // Create a string message to send and put it on the buffer
                 final String message = "Hello World!";
                 final byte[] messageBytes = message.getBytes();
                 buffer.putBytes(0, messageBytes);

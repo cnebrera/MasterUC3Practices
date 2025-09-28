@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 28px;
+    text-align: center;
+    border-bottom: 4px solid #1d4ed8;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    font-size: 1.9rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+select, button {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #1e7e34;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 24px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid #dee2e6;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef;
+    transition: box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.prices-container {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.price-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 80px 100px 80px;
+    gap: 15px;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+.header-row {
+    background: #e3f2fd;
+    font-weight: bold;
+    border-bottom: 2px solid #2196f3;
+}
+
+.placeholder-row {
+    background: #f8f9fa;
+    color: #6c757d;
+    font-style: italic;
+    text-align: center;
+}
+
+.price-item:nth-child(even):not(.header-row):not(.placeholder-row) {
+    background: #f8f9fa;
+}
+
+.price-item:nth-child(odd):not(.header-row):not(.placeholder-row) {
+    background: white;
+}
+
+.price {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.volume {
+    color: #6c757d;
+}
+
+.status {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
+}
+
+.status.connected {
+    color: #28a745;
+}
+
+.status.disconnected {
+    color: #dc3545;
+}
+
+.status.connecting {
+    color: #ffc107;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.footer {
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    padding: 16px 24px;
+    text-align: center;
+    color: #6c757d;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.footer p {
+    margin: 4px 0;
+    color: #6c757d;
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+    }
+    
+    .price-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+    
+    .footer {
+        padding: 12px 16px;
+        font-size: 12px;
+    }
+}

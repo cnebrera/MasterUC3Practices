@@ -1,13 +1,6 @@
 package com.imdg.practicas;
 
 import com.hazelcast.config.Config;
-import com.hazelcast.core.Hazelcast;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
-import com.imdg.pojos.Person;
-
-import java.util.Map;
-import java.util.Queue;
 
 public class Practica1IMDG {
 

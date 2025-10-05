@@ -2,10 +2,7 @@ package com.imdg.pojos;
 
 import java.io.Serializable;
 
-/**
- * Created by Sobremesa on 31/10/2016.
- */
-public class MarketOrder implements Serializable{
+public class MarketOrder implements Serializable {
 
     /* Instrument/name of the company whose stocks were traded */
     private String instrument;

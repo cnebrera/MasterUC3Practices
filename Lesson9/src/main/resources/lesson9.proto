@@ -2,10 +2,8 @@ syntax = "proto3";
 
 package com.cnebrera.uc3.tech.lesson9;
 
-option java_package = "com.cnebrera.uc3.tech.lesson9.proto";
+option java_package = "com";
 option java_outer_classname = "Lesson9";
-
-
 
 message Instrument {
 
@@ -13,8 +11,4 @@ message Instrument {
 
 message ReferenceData {
 
-
-   repeated Instrument instrument = 1;
-
 }
-

@@ -2,33 +2,112 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.cnebrera.uc3.tech</groupId>
-    <artifactId>Lesson10</artifactId>
-    <version>1.0.0</version>
-    <packaging>jar</packaging>
+  <groupId>com.cnebrera.uc3.tech</groupId>
+  <artifactId>Lesson10</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
 
-    <dependencies>
+  <name>Lesson10 - Financial Market Protocols</name>
+  <description>FIX protocol demo (QuickFIX/J) for university exercise.</description>
 
-            <dependency>
-                <groupId>org.quickfixj</groupId>
-                <artifactId>quickfixj-all</artifactId>
-                <version>1.6.2</version>
-            </dependency>
+  <properties>
+    <!-- Java -->
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>1.1.2</version>
-        </dependency>
+    <!-- Dependency versions -->
+    <quickfixj.version>2.3.2</quickfixj.version>
+    <logback.version>1.5.12</logback.version>
+    <junit.version>5.11.3</junit.version>
 
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.1.2</version>
-        </dependency>
+    <!-- Plugin versions -->
+    <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+    <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+    <exec-maven-plugin.version>3.5.0</exec-maven-plugin.version>
+  </properties>
 
-    </dependencies>
+  <dependencies>
+    <!-- QuickFIX/J -->
+    <dependency>
+      <groupId>org.quickfixj</groupId>
+      <artifactId>quickfixj-all</artifactId>
+      <version>${quickfixj.version}</version>
+    </dependency>
 
+    <!-- Logging -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+
+    <!-- Tests -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Java 21 using release -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <release>${maven.compiler.release}</release>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <showWarnings>true</showWarnings>
+          <showDeprecation>true</showDeprecation>
+        </configuration>
+      </plugin>
+
+      <!-- JUnit 5 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
+      </plugin>
+
+      <!-- Run the two demo apps with exec:java@<id> -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${exec-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>acceptor</id>
+            <goals><goal>java</goal></goals>
+            <configuration>
+              <mainClass>es.uc3m.fintech.lesson10.AcceptorRunner</mainClass>
+              <arguments>
+                <argument>acceptor.cfg</argument>
+              </arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>initiator</id>
+            <goals><goal>java</goal></goals>
+            <configuration>
+              <mainClass>es.uc3m.fintech.lesson10.InitiatorRunner</mainClass>
+              <arguments>
+                <argument>initiator.cfg</argument>
+              </arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

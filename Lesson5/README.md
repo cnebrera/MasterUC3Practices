@@ -31,6 +31,14 @@ java -jar target/Lesson5-1.0.0-SNAPSHOT.jar
 java -jar target/Lesson5-1.0.0-SNAPSHOT.jar 1000
 ```
 
+### Option 3: Run Cryptographic Benchmark
+```bash
+# Run the cryptographic performance benchmark
+mvn compile exec:java
+```
+
+This will execute the `Benchmark` class which compares AES (symmetric) and RSA (asymmetric) encryption performance.
+
 ## Access the Application
 Once started, open your browser and go to:
 - **Main Application:** https://localhost:8443
@@ -49,3 +57,4 @@ Once started, open your browser and go to:
 Students will implement TODOs to understand:
 - HTTPS/WSS secure communication setup
 - SSL certificate generation and keystore management
+- Cryptographic performance analysis (AES vs RSA)

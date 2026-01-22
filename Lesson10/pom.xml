@@ -20,7 +20,7 @@
 
     <!-- Dependency versions -->
     <quickfixj.version>2.3.2</quickfixj.version>
-    <logback.version>1.5.12</logback.version>
+    <logback.version>1.5.25</logback.version>
     <junit.version>5.11.3</junit.version>
 
     <!-- Plugin versions -->

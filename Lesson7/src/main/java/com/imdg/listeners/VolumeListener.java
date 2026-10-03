@@ -2,14 +2,10 @@ package com.imdg.listeners;
 
 import com.hazelcast.core.EntryEvent;
 import com.hazelcast.map.listener.EntryAddedListener;
-import com.hazelcast.map.listener.EntryUpdatedListener;
 import com.imdg.pojos.MarketOrder;
 
-import java.io.Serializable;
-
 public class VolumeListener
-        implements EntryAddedListener<String, MarketOrder>,
-        EntryUpdatedListener<String, MarketOrder>, Serializable {
+        implements EntryAddedListener<String, MarketOrder> {
 
     private String instrumentoAControlar;
     private int volumenAcumulado = 0;
@@ -31,14 +27,4 @@ public class VolumeListener
         // TODO Si es mayor, poner el volumen acumulado a 0 e imprimir por pantalla un mensaje de alerta
     }
 
-    /**
-     * Escuchar entradas que se añaden, restar valor antiguo y
-     * sumar el nuevo al volumen/imprimir alerta si llegamos a 30000
-     *
-     * @param entryEvent
-     */
-    @Override
-    public void entryUpdated(EntryEvent<String, MarketOrder> entryEvent) {
-
-    }
 }

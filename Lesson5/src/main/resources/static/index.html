@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lesson 5: Last-Mile Messaging System with HTTPS</title>
+        <title>Lessons 4-5: Last-Mile Messaging</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
             <div class="header">
-                <h1>Lesson 5: Last-Mile Messaging System with HTTPS</h1>
-                <p>Simulation of Real-Time Price Updates using Secure WebSocket & Long Polling</p>
+                <h1>Lessons 4-5: Last-Mile Messaging</h1>
+                <p>Real-time price updates with WebSocket, Long Polling and Server-Sent Events</p>
             </div>
 
         <div class="controls">
@@ -19,6 +19,7 @@
                 <select id="transportType">
                     <option value="websocket">WebSocket</option>
                     <option value="long-polling">Long Polling</option>
+                    <option value="sse">Server-Sent Events (SSE)</option>
                 </select>
             </div>
                 <button id="startButton">Start</button>
@@ -38,13 +39,17 @@
                 <div class="stat-value" id="totalMessages">0</div>
                 <div class="stat-label">Total Messages</div>
             </div>
+            <div class="stat-card">
+                <div class="stat-value" id="lostMessages">0</div>
+                <div class="stat-label">Lost Messages</div>
+            </div>
         </div>
 
         <div class="status" id="status">Disconnected</div>
 
         <div class="prices-container">
             <div class="price-item header-row">
-                <div>Market</div>
+                <div>Seq</div>
                 <div>Product</div>
                 <div>Instrument</div>
                 <div>Level</div>

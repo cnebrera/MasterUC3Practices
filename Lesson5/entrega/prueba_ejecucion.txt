@@ -1,0 +1,4 @@
+# Prueba de ejecución - Prácticas 4-5
+# Copia aquí, sin modificarlas, las dos líneas de la consola que empiezan por [PRUEBA]
+# (aparecen pocos segundos después de arrancar la aplicación).
+

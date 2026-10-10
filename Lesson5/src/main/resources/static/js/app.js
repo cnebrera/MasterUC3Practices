@@ -5,7 +5,10 @@ class PriceFeed {
         this.messageCount = 0;
         this.lastMessageTime = null;
         this.websocket = null;
+        this.eventSource = null;
         this.longPollingActive = false;
+        this.lastSeq = null;
+        this.lostCount = 0;
         this.retryCount = 0;
         this.maxRetries = 3;
         
@@ -24,12 +27,13 @@ class PriceFeed {
         this.messagesPerSecond = document.getElementById('messagesPerSecond');
         this.totalTime = document.getElementById('totalTime');
         this.totalMessages = document.getElementById('totalMessages');
+        this.lostMessages = document.getElementById('lostMessages');
 
         // Validate all elements exist
         const requiredElements = [
             this.startButton, this.stopButton, this.transportType,
             this.status, this.pricesContainer, this.messagesPerSecond,
-            this.totalTime, this.totalMessages
+            this.totalTime, this.totalMessages, this.lostMessages
         ];
 
         if (requiredElements.some(el => !el)) {
@@ -67,7 +71,9 @@ class PriceFeed {
             // Enter to toggle transport
             if (event.code === 'Enter' && !event.target.matches('input, textarea, select')) {
                 event.preventDefault();
-                this.transportType.value = this.transportType.value === 'websocket' ? 'long-polling' : 'websocket';
+                const order = ['websocket', 'long-polling', 'sse'];
+                const next = (order.indexOf(this.transportType.value) + 1) % order.length;
+                this.transportType.value = order[next];
                 if (this.isConnected) {
                     this.stop();
                     setTimeout(() => this.start(), 100);
@@ -94,6 +100,8 @@ class PriceFeed {
         this.messageCount = 0;
         this.lastMessageTime = Date.now();
         this.retryCount = 0;
+        this.lastSeq = null;
+        this.lostCount = 0;
 
         // Clear existing data and show placeholder when starting
         this.pricesContainer.innerHTML = '<div class="price-item placeholder-row"><div>Connecting...</div><div></div><div></div><div></div><div></div><div></div></div>';
@@ -105,6 +113,8 @@ class PriceFeed {
         try {
             if (transport === 'websocket') {
                 await this.startWebSocket();
+            } else if (transport === 'sse') {
+                this.startSse();
             } else {
                 await this.startLongPolling();
             }
@@ -120,6 +130,11 @@ class PriceFeed {
         if (this.websocket) {
             this.websocket.close();
             this.websocket = null;
+        }
+
+        if (this.eventSource) {
+            this.eventSource.close();
+            this.eventSource = null;
         }
         
         this.longPollingActive = false;
@@ -198,16 +213,16 @@ class PriceFeed {
                 // TODO 3: Make HTTP request to long polling endpoint
                 // HINT: Use await fetch() to make a request that waits for data from the server
                 // The endpoint is /prices/long-polling
-                
-                if (response.ok) {
-                    // TODO 4: Handle incoming messages from the server
-                    // HINT: Use response.json() to parse the JSON response and call handleMessage() to process it
-                    
-                    this.retryCount = 0; // Reset retry count on successful request
-                } else if (response.status === 204) {
+
+                if (response.status === 204) {
                     // HTTP 204 (No Content) means no new data within timeout period
                     // Continue polling immediately - this is normal behavior
                     continue;
+                } else if (response.ok) {
+                    // TODO 4: Handle incoming messages from the server
+                    // HINT: Use response.json() to parse the JSON response and call handleMessage() to process it
+
+                    this.retryCount = 0; // Reset retry count on successful request
                 } else {
                     throw new Error(`HTTP ${response.status}`);
                 }
@@ -217,6 +232,31 @@ class PriceFeed {
                 break;
             }
         }
+    }
+
+    startSse() {
+        this.status.textContent = 'SSE Connection Active';
+        this.status.className = 'status connected';
+
+        // TODO 5: Create the Server-Sent Events connection under this.eventSource
+        // HINT: The browser API for SSE is EventSource. The endpoint is /prices/sse
+
+        this.eventSource.onmessage = (event) => {
+            try {
+                // TODO 6: Handle incoming messages from the server (event.data)
+                // HINT: Exactly the same as in WebSocket: parse the JSON and call handleMessage()
+            } catch (error) {
+                console.error('Failed to parse SSE message:', error);
+            }
+        };
+
+        this.eventSource.onerror = (error) => {
+            // EventSource reconnects automatically. We only stop if the user pressed Stop.
+            console.warn('SSE error (the browser will try to reconnect):', error);
+            if (!this.isConnected && this.eventSource) {
+                this.eventSource.close();
+            }
+        };
     }
 
     handleConnectionError(error) {
@@ -247,6 +287,12 @@ class PriceFeed {
 
         this.messageCount++;
         this.lastMessageTime = Date.now();
+
+        // Detect lost messages: consecutive messages must have consecutive sequence numbers
+        if (this.lastSeq !== null && priceMessage.seq > this.lastSeq + 1) {
+            this.lostCount += priceMessage.seq - this.lastSeq - 1;
+        }
+        this.lastSeq = priceMessage.seq;
         
         // Remove placeholder row if it exists
         const placeholder = this.pricesContainer.querySelector('.placeholder-row');
@@ -265,7 +311,8 @@ class PriceFeed {
     }
 
     isValidPriceMessage(message) {
-        return message && 
+        return message &&
+               typeof message.seq === 'number' &&
                typeof message.market === 'string' &&
                typeof message.product === 'string' &&
                typeof message.instrumentName === 'string' &&
@@ -278,7 +325,7 @@ class PriceFeed {
         const div = document.createElement('div');
         div.className = 'price-item';
         div.innerHTML = `
-            <div>${this.escapeHtml(priceMessage.market)}</div>
+            <div>#${priceMessage.seq}</div>
             <div>${this.escapeHtml(priceMessage.product)}</div>
             <div>${this.escapeHtml(priceMessage.instrumentName)}</div>
             <div>${priceMessage.level}</div>
@@ -305,6 +352,7 @@ class PriceFeed {
             
             this.totalTime.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
             this.totalMessages.textContent = this.messageCount.toLocaleString();
+            this.lostMessages.textContent = this.lostCount.toLocaleString();
 
             // Calculate messages per second (last 5 seconds)
             if (this.lastMessageTime && now - this.lastMessageTime < 5000) {

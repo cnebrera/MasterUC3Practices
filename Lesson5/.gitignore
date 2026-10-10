@@ -10,3 +10,5 @@ target/
 .springBeans
 
 .DS_Store
+# Logs de la aplicación
+*.log

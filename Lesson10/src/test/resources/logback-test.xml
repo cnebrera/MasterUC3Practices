@@ -1,0 +1,13 @@
+<configuration>
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %-18logger{0} %msg%n</pattern>
+    </encoder>
+  </appender>
+  <logger name="quickfix" level="OFF"/>
+  <logger name="quickfixj" level="OFF"/>
+  <logger name="es.uc3m.fintech.lesson10" level="ERROR"/>
+  <root level="WARN">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</configuration>

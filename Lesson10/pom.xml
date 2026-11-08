@@ -6,11 +6,11 @@
 
   <groupId>com.cnebrera.uc3.tech</groupId>
   <artifactId>Lesson10</artifactId>
-  <version>1.0.0</version>
+  <version>2.0.0</version>
   <packaging>jar</packaging>
 
   <name>Lesson10 - Financial Market Protocols</name>
-  <description>FIX protocol demo (QuickFIX/J) for university exercise.</description>
+  <description>FIX 5.0SP2 (FIXT.1.1) exercise (QuickFIX/J): UC3M Exchange market data gateway.</description>
 
   <properties>
     <!-- Java -->
@@ -19,7 +19,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!-- Dependency versions -->
-    <quickfixj.version>2.3.2</quickfixj.version>
+    <quickfixj.version>3.0.2</quickfixj.version>
     <logback.version>1.5.12</logback.version>
     <junit.version>5.11.3</junit.version>
 
@@ -40,11 +40,6 @@
     <!-- Logging -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-core</artifactId>
-      <version>${logback.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>${logback.version}</version>
     </dependency>
@@ -60,7 +55,6 @@
 
   <build>
     <plugins>
-      <!-- Java 21 using release -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -68,8 +62,6 @@
         <configuration>
           <release>${maven.compiler.release}</release>
           <encoding>${project.build.sourceEncoding}</encoding>
-          <showWarnings>true</showWarnings>
-          <showDeprecation>true</showDeprecation>
         </configuration>
       </plugin>
 
@@ -78,9 +70,12 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
+        <configuration>
+          <trimStackTrace>true</trimStackTrace>
+        </configuration>
       </plugin>
 
-      <!-- Run the two demo apps with exec:java@<id> -->
+      <!-- Run the two apps with exec:java@<id> -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
@@ -90,20 +85,14 @@
             <id>acceptor</id>
             <goals><goal>java</goal></goals>
             <configuration>
-              <mainClass>es.uc3m.fintech.lesson10.AcceptorRunner</mainClass>
-              <arguments>
-                <argument>acceptor.cfg</argument>
-              </arguments>
+              <mainClass>es.uc3m.fintech.lesson10.exchange.AcceptorRunner</mainClass>
             </configuration>
           </execution>
           <execution>
             <id>initiator</id>
             <goals><goal>java</goal></goals>
             <configuration>
-              <mainClass>es.uc3m.fintech.lesson10.InitiatorRunner</mainClass>
-              <arguments>
-                <argument>initiator.cfg</argument>
-              </arguments>
+              <mainClass>es.uc3m.fintech.lesson10.client.InitiatorRunner</mainClass>
             </configuration>
           </execution>
         </executions>
